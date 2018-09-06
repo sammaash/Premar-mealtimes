@@ -1,0 +1,91 @@
+<!--
+  Generated template for the IntroSliderPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-content class="back-view clearbg" scrollbar-y='false'>
+    <div class="my-header"> 
+        <img src='assets/imgs/logo_.png' />
+    </div>
+
+    <ion-slides *ngIf="!isSkipped" autoplay=5000 speed=1000 pager="false" class='slider-view' (ionSlideDidChange)="slideChanged()">
+        <ion-slide>
+            <div style="background:url('assets/imgs/food/mincedmeat.jpeg') center;background-size:cover;"></div>
+
+            <p class='message-box'>
+                <span>Muvizoo</span> <br/>
+                Imagine a life without any trips to the movie shop...
+            </p>
+        </ion-slide>
+
+        <ion-slide>
+            <div class='image-box' style="background:url('assets/imgs/food/chicken.jpeg') center;background-size:cover;"></div>
+            <br/>
+            <p class='message-box'>
+                ...imagine being able to <span>compare ratings and prices</span> right from your phone...
+            </p>
+        </ion-slide>
+
+        <ion-slide>
+            <div class='image-box' style="background:url('assets/imgs/food/lightsnack.jpeg') center;background-size:cover;"></div>
+            <br/>
+            <p class='message-box'>
+                ...imagine being able to <span>order anything</span> you wanna watch <span>to your doorstep...</span>!
+            </p>
+        </ion-slide>
+
+        <ion-slide>
+            <div class='image-box' style="background:url('assets/imgs/food/homecooked.jpeg') center;background-size:cover;"></div>
+            <br/>
+            <p class='message-box'>
+                ...imagine being able to <span>order anything</span> you wanna watch <span>to your doorstep</span>!
+            </p>
+        </ion-slide>
+        <ion-slide>
+            <div class='image-box' style="background:url('assets/imgs/food/beautiful.jpeg') center;background-size:cover;"></div>
+
+            <p class='message-box'><br/>
+                <span>Welcome to Muvizoo Movies!</span>
+                <br/>
+                Here to offer you the good life!
+            </p>
+        </ion-slide>
+    </ion-slides>
+
+
+
+    <div *ngIf="isSkipped" class='slider-view'>
+        <ion-fab #ydffab>
+            <button mini color="introfab" ion-fab><ion-icon name="menu"></ion-icon></button>
+            <ion-fab-list>
+                <div (click)="fabButtonClick('products', ydffab)"><div class='floating-label'>Products</div><button color='products' ion-fab><ion-icon name="clipboard"></ion-icon></button></div>
+                <div (click)="fabButtonClick('events', ydffab)"><div class='floating-label'>Offers</div><button color='events' ion-fab><ion-icon name="md-calendar"></ion-icon></button></div>
+                <div (click)="fabButtonClick('contacts', ydffab)"><div class='floating-label'>Contacts</div><button color='contacts' ion-fab><ion-icon name="md-call"></ion-icon></button></div>
+                <div (click)="fabButtonClick('share', ydffab)"><div class='floating-label'>Share</div><button color='share' ion-fab><ion-icon name="md-share"></ion-icon></button></div>
+            </ion-fab-list>
+        </ion-fab>
+        <div class='slider-div'>
+            <div class='image-box' style="background:url('assets/imgs/food/beautiful.jpeg') center;background-size:cover;"></div>
+            <p class='message-box'>
+                This is <b>Meal Times!</b>
+                <br/>
+                Bringing you all the meals you love to eat!
+            </p>
+        </div>
+    </div>
+
+    <div class="my-footer" *ngIf="!isSkipped">
+        <p class='float-left' (click)="skipShow()">
+            Skip <ion-icon name='ios-arrow-forward'></ion-icon><ion-icon name='ios-arrow-forward'></ion-icon>
+        </p>
+        <p class='float-right' (click)="nextSlide()">Next <ion-icon name='ios-arrow-forward'></ion-icon></p>
+    </div>
+    <div class="my-footer" *ngIf="isSkipped">
+        <button type='button' class='login-button' (click)="startSurvey()">
+            Start Survey&nbsp;&nbsp;&nbsp;
+            <ion-icon name='ios-create-outline'></ion-icon> 
+        </button>
+    </div>
+</ion-content>

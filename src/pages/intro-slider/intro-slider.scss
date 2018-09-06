@@ -1,0 +1,81 @@
+page-intro-slider {
+    ion-content {
+        overflow-y:hidden;
+    }
+    .my-header {
+        height:9%;
+        background-color: #000000;
+        text-align:center;
+    }
+    .my-header img {
+        height:100%;
+    }
+    .slider-view {
+        width: 100%;
+        height: 83%; 
+    }
+    .slider-view ion-slide, .slider-view .slider-div {
+        width: 100%;
+        height: 100%;
+        background-color: map-get($colors, secondary);
+    }
+    ion-slide > div, .slider-div > div {
+        height: 100%;
+        width:100%;
+    }
+    ion-slide > div > div, .slider-div > div {
+        height: 70%;
+        width:100%;
+    }
+    .message-box {
+        color: white;
+        text-align:center;
+        line-height:1.5em;
+        font-size:100%;
+        height:30%;
+        width:100%;
+        font-size:18px;
+        padding-left: 5px;
+        padding-right: 5px; 
+        overflow:hidden;
+    }
+    .message-box span {
+        font-weight:bold;
+        font-size:18px;
+    }
+    .my-footer {
+        max-height:10%;
+        height:8%;
+        background-color:map-get($colors, secondary);
+        font-weight:bold;
+    }
+    
+    .my-footer p.float-left {
+        margin-left:10px;
+    }
+    
+    .my-footer p.float-right {
+        margin-right:15px;
+    }
+    .my-footer ion-icon {
+        font-size:0.8em;
+    }
+    .my-footer button {
+        min-height:50px;
+        font-size:24px;
+        font-family: Helvetica, Arial, sans-serif;
+    }
+    .register-button {
+        background-color: map-get($colors, secondary);
+        color: map-get($colors, ydf);
+    }
+    .login-button { 
+        background-color: map-get($colors, primary);
+        color: white;
+    }
+    ion-fab {width:120px;margin-top:28px;}
+    ion-fab > button {float:right;}
+    ion-fab ion-fab-list {width:120px;} 
+    ion-fab ion-fab-list > div {width:100%;}
+    .floating-label{width:65px;margin-top:17px;background-color: map-get($colors,ydf);color:#fff;padding:4px;float:left;margin-right:4px;}
+}

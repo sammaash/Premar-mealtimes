@@ -3,38 +3,69 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
-import { AboutPage } from '../pages/about/about';
+import { ExpensesPage } from '../pages/expenses/expenses';
+import { InvestmentsPage } from '../pages/investments/investments';
 import { ContactPage } from '../pages/contact/contact';
-import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
+import { ConfirmationPage } from '../pages/confirmation/confirmation';
+import { LifestylePage } from '../pages/lifestyle/lifestyle';
+import { FinishPage } from '../pages/finish/finish';
+import { BudgetPage } from '../pages/budget/budget';
+
+
+
+
+import { DetailsOfPrinciplePage } from '../pages/details-of-principle/details-of-principle';
+import { IncomeDetailsPage } from '../pages/income-details/income-details';
+import { IntroSliderPage } from '../pages/intro-slider/intro-slider';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { GlobalsProvider } from '../providers/globals/globals';
+import { AlertService } from '../providers/alert-service/alert-service';
+import {SocialSharing} from '@ionic-native/social-sharing';
+import { IonicStorageModule } from '@ionic/storage';
 
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
+    ExpensesPage,
     ContactPage,
-    HomePage,
-    TabsPage
+    TabsPage,
+    DetailsOfPrinciplePage,
+    IncomeDetailsPage,
+    InvestmentsPage,
+    ConfirmationPage,
+    LifestylePage,
+    IntroSliderPage,
+    FinishPage,
+    BudgetPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    AboutPage,
+    ExpensesPage,
     ContactPage,
-    HomePage,
-    TabsPage
+    TabsPage,
+    DetailsOfPrinciplePage,
+    IncomeDetailsPage,
+    InvestmentsPage,
+    ConfirmationPage,
+    LifestylePage,
+    IntroSliderPage,
+    FinishPage,
+    BudgetPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    GlobalsProvider, AlertService, SocialSharing
   ]
 })
 export class AppModule {}

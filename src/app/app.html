@@ -1,1 +1,20 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<ion-nav #mycontent [root]="rootPage"></ion-nav>
+
+<!--a side menu to be shown from all root pages-->
+<ion-menu type="overlay" [content]="mycontent" id="side-menu-view">
+    <ion-content class="sidemenu-content">
+        <img  src="./assets/imgs/sidemenu.jpg" class="header-image" />
+        <ion-list class="clearbg sidemenu-list">
+            <p style="line-height:1.4em;font-size:18px;">Hello, thanks for taking the time. 
+                We are planning to launch a food business and want to hear your opinion.</p>
+        </ion-list>
+        <img  src="./assets/imgs/logo_.png" class="footer-image" />
+    </ion-content>
+</ion-menu>
+
+<!--FAB button to toggle the menu shown/hidden-->
+<ion-fab top right id="menu-toggle-button" *ngIf="1 == 0"> 
+    <button ion-fab mini menuToggle>
+        <ion-icon name="menu"></ion-icon>
+    </button>
+</ion-fab>
