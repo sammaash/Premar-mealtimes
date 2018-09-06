@@ -37,13 +37,13 @@ misslunchs: misslunch[] = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
   public globals: GlobalsProvider) {
+        
         this.addmisslunch();
         this.addreasone();
 
   }
+  
   nextTab() {
-        
-           
             this.navCtrl.parent.select(1);
         
         }

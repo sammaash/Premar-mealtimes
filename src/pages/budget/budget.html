@@ -14,270 +14,91 @@
 
 
 <ion-content padding class="clearbg">
-<ion-card>
- <ion-label text-wrap stacked color="primary">
-                        <h1 ion-text color="dark">Income and food expenses</h1>
-                    </ion-label>
+    <ion-card>
+        <ion-label text-wrap stacked color="primary">
+            <h1 ion-text color="dark">Income and food expenses</h1>
+        </ion-label>
 
- <ion-card>
-        <!-- <ion-card-header>
-          Monthly Earnings
-        </ion-card-header> -->
-        <ion-grid>
-              <ion-row>
-            <ion-col>
-                <ion-item>
-                    <ion-label text-wrap stacked color="primary">
-                        How much do you earn per month.?
-                    </ion-label>
-                    <ion-header>Monthly earnings</ion-header>
-                    <ion-select [(ngModel)]="monthlyearnings">
-                        <ion-option value="Below 10,000">Below 10,000</ion-option>
-                        <ion-option value="10,000-20,000">10,000-20,000</ion-option>
-                        <ion-option value="20,000-30,000">20,000-40,000</ion-option>
-                        <ion-option value="40,000-100,000">40,000-100,000</ion-option>
-                        <ion-option value="Above 100,000">Above 100,000</ion-option>
-                    </ion-select>
-                </ion-item>
-            </ion-col>
- <ion-col>
-                <ion-item>
-                    <ion-label text-wrap stacked color="primary">
-                        Budget for food per month.?
-                    </ion-label>
-                    <ion-select [(ngModel)]="foodbudget">
-                        <ion-option value="Below 5,000">Below 5,000</ion-option>
-                        <ion-option value="5,000-10,000">5,000-10,000</ion-option>
-                        <ion-option value="10,000-20,000">10,000-20,000</ion-option>
-                        <ion-option value="Above 20,000">Above 20,000</ion-option>
-                    </ion-select>
-                </ion-item>
-            </ion-col>
-             <ion-col>
-                <ion-item>
-                    <ion-label text-wrap stacked color="primary">
-                        Daily lunch expenses
-                    </ion-label>
-                    <ion-select  [(ngModel)]="lunch">
-                        <ion-option value="100 and below">100 and below</ion-option>
-                        <ion-option value="100-300">100-300</ion-option>
-                        <ion-option value="300-700">300-700</ion-option>
-                        <ion-option value="above 700">above 700</ion-option>
-                    </ion-select>
-                </ion-item>
-            </ion-col>
-            </ion-row>
-            <ion-row>
-            <ion-col>
-                <ion-item>
-                    <ion-label text-wrap stacked color="primary">
-                        Would you like to have someone/somewhere you can pay for all your daily lunches in advance?
-                    </ion-label>
-                    <ion-select [(ngModel)]="paylunch">
-                        <ion-option value="NO">NO</ion-option>
-                        <ion-option value="YES">YES</ion-option>
-                    </ion-select>
-                </ion-item>
-            </ion-col>
-            <ion-col>
-                <ion-item>
-                    <ion-label text-wrap stacked color="primary">
-                        A good lunch should cost?
-                    </ion-label>
-                    <ion-select [(ngModel)]="lunchcost">
-                        <ion-option value="100 and below">100 and below</ion-option>
-                        <ion-option value="100-300">100-300</ion-option>
-                        <ion-option value="300-700">300-700</ion-option>
-                        <ion-option value="above 700">above 700</ion-option>
-                    </ion-select>
-                </ion-item>
-            </ion-col>
-
-
-
-
-        </ion-row>
-
-        
-
-
-        
-        
-        </ion-grid>
-
-    </ion-card>
-    </ion-card>
-         <!-- <ion-card>
-         <!<ion-card-header>
-          Food Budget
-        </ion-card-header> -->
-              <!-- <ion-row>
-            <ion-col>
-                <ion-item>
-                    <ion-label text-wrap stacked color="primary">
-                        How much do you budget for food per month.?
-                    </ion-label>
-                    <ion-select [(ngModel)]="foodbudget">
-                        <ion-option value="Below 5,000">Below 5,000</ion-option>
-                        <ion-option value="5,000-10,000">5,000-10,000</ion-option>
-                        <ion-option value="10,000-20,000">10,000-20,000</ion-option>
-                        <ion-option value="Above 20,000">Above 20,000</ion-option>
-                    </ion-select>
-                </ion-item>
-            </ion-col>
-        </ion-row> -->
-   <!--  </ion-card> -->
- <!-- <ion-card> --> 
- <!-- <ion-card-header>
-          Lunch
-        </ion-card-header> -->
-              <!-- 
-        </ion-grid> -->
-<!--         <button ion-button round (click)="addIndemnityInsurance()"> Add Indemnity Insurer &nbsp;&nbsp;&nbsp;
-                <ion-icon name="add"></ion-icon>
-        </button> -->
-    <!-- </ion-card>
-    </ion-grid>
-    </ion-card>
-             
-         <ion-card>
-         <ion-card-header>
-          Daily Lunch cost
-        </ion-card-header> -->
-              
-              <!-- <ion-row>
-                <ion-col>
-                <ion-item>
-                    <ion-label text-wrap stacked color="primary">
-                        Do you ever miss lunch?
-                    </ion-label>
-                    <ion-select [(ngModel)]="lunches">
-                        <ion-option value="0">NO</ion-option>
-                        <ion-option value="1">YES</ion-option>
-                    </ion-select>
-                </ion-item>
-            </ion-col>
-        </ion-row>
-    
-     <ion-card *ngIf="lunches == 1">
-           <ion-grid *ngFor="let misslunch of misslunchs;
-           let i = index"   class='shadow'>
-            
-            <ion-row>
-             <ion-item>
-                    <ion-label text-wrap stacked color="primary">
-                        what is the most likely reason? 
-                    </ion-label>
-                    <ion-select [(ngModel)]="reason">
-                        <ion-option value="no money">no money</ion-option>
-                        <ion-option value="no time ">no time </ion-option>
-                        <ion-option value="no options">no options </ion-option>
-                        <ion-option value="1">other</ion-option>
-                         </ion-select>
-                </ion-item>
+        <ion-card>
+            <!-- <ion-card-header>
+              Monthly Earnings
+            </ion-card-header> -->
+            <ion-grid>
+                <ion-row>
+                    <ion-col>
+                        <ion-item>
+                            <ion-label text-wrap stacked color="primary">
+                                How much do you earn per month?
+                            </ion-label>
+                            <ion-header>Monthly earnings</ion-header>
+                            <ion-select [(ngModel)]="monthlyearnings">
+                                <ion-option value="Below 10,000">Below 10,000</ion-option>
+                                <ion-option value="10,000-20,000">10,000 - 20,000</ion-option>
+                                <ion-option value="20,000-30,000">20,000 - 40,000</ion-option>
+                                <ion-option value="40,000-100,000">40,000 - 100,000</ion-option>
+                                <ion-option value="Above 100,000">Above 100,000</ion-option>
+                            </ion-select>
+                        </ion-item>
+                    </ion-col>
+                    <ion-col>
+                        <ion-item>
+                            <ion-label text-wrap stacked color="primary">
+                                Budget for food per month.?
+                            </ion-label>
+                            <ion-select [(ngModel)]="foodbudget">
+                                <ion-option value="Below 5,000">Below 5,000</ion-option>
+                                <ion-option value="5,000-10,000">5,000 - 10,000</ion-option>
+                                <ion-option value="10,000-20,000">10,000 - 20,000</ion-option>
+                                <ion-option value="Above 20,000">Above 20,000</ion-option>
+                            </ion-select>
+                        </ion-item>
+                    </ion-col>
+                    <ion-col>
+                        <ion-item>
+                            <ion-label text-wrap stacked color="primary">
+                                Daily lunch expenses
+                            </ion-label>
+                            <ion-select  [(ngModel)]="lunch">
+                                <ion-option value="100 and below">100 and below</ion-option>
+                                <ion-option value="100-300">100 - 300</ion-option>
+                                <ion-option value="300-700">300 - 700</ion-option>
+                                <ion-option value="above 700">above 700</ion-option>
+                            </ion-select>
+                        </ion-item>
+                    </ion-col>
                 </ion-row>
-               
-                <ion-card *ngIf="reason == 1">
-        
-        <ion-grid *ngFor="let reasone of reasones;let i = index"   class='shadow'>
-            
-            <ion-row>
-                <ion-col>
-                    <ion-item>
-                        <ion-label color="primary" floating>Reason to Miss lunch</ion-label>
-                        <ion-input [(ngModel)]="lunchvalue"></ion-input>
-                    </ion-item>
-                </ion-col>
-            </ion-row> 
+                <ion-row>
+                    <ion-col>
+                        <ion-item>
+                            <ion-label text-wrap stacked color="primary">
+                                Would you like to have someone/somewhere you can pay for all your daily lunches in advance?
+                            </ion-label>
+                            <ion-select [(ngModel)]="paylunch">
+                                <ion-option value="NO">NO</ion-option>
+                                <ion-option value="YES">YES</ion-option>
+                            </ion-select>
+                        </ion-item>
+                    </ion-col>
+                    <ion-col>
+                        <ion-item>
+                            <ion-label text-wrap stacked color="primary">
+                                A good lunch should cost?
+                            </ion-label>
+                            <ion-select [(ngModel)]="lunchcost">
+                                <ion-option value="100 and below">100 and below</ion-option>
+                                <ion-option value="100-300">100-300</ion-option>
+                                <ion-option value="300-700">300-700</ion-option>
+                                <ion-option value="above 700">above 700</ion-option>
+                            </ion-select>
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
             </ion-grid>
-            </ion-card>
-            </ion-grid>
-            </ion-card>
- -->
 
-                   <!-- How much do you spend at lunch per day?
-                    </ion-label>
-                    <ion-select [selectOptions]="selectOptions" [(ngModel)]="lunch">
-                        <ion-option value="100 and below">100 and below</ion-option>
-                        <ion-option value="100-300">100-300</ion-option>
-                        <ion-option value="300-700">300-700</ion-option>
-                        <ion-option value="above 700">above 700</ion-option>
-                    </ion-select>
-                </ion-item>
-            </ion-col>
-        </ion-row>
+        </ion-card>
+        <button color='secondary' ion-button round (click)="nextTab()"> Next
+                         &nbsp;&nbsp;&nbsp;<ion-icon name="ios-arrow-forward"></ion-icon>
+            </button>
     </ion-card>
-     <ion-card>  -->
-     <!-- <ion-card-header>
-          Lunch bookings
-        </ion-card-header> -->
-              <!-- <ion-row>
-            <ion-col>
-                <ion-item>
-                    <ion-label text-wrap stacked color="primary">
-                        Would you like to have someone/somewhere you can pay for all your daily lunches in advance?
-                    </ion-label>
-                    <ion-select [(ngModel)]="paylunch">
-                        <ion-option value="NO">NO</ion-option>
-                        <ion-option value="YES">YES</ion-option>
-                    </ion-select>
-                </ion-item>
-            </ion-col>
-        </ion-row>
-    </ion-card>
-    <ion-card> -->
-    <!-- <ion-card-header>
-          Ideal Lunch cost
-        </ion-card-header> -->
-              <!-- <ion-row>
-            <ion-col>
-                <ion-item>
-                    <ion-label text-wrap stacked color="primary">
-                        A good lunch should cost?
-                    </ion-label>
-                    <ion-select [(ngModel)]="lunchcost">
-                        <ion-option value="100 and below">100 and below</ion-option>
-                        <ion-option value="100-300">100-300</ion-option>
-                        <ion-option value="300-700">300-700</ion-option>
-                        <ion-option value="above 700">above 700</ion-option>
-                    </ion-select>
-                </ion-item>
-            </ion-col>
-        </ion-row>
-    </ion-card>
- -->
-               <!--  <ion-col>
-                    <ion-item>
-                        <ion-label color="primary" floating>Last Expense Cover</ion-label>
-                        <ion-input [(ngModel)]="misslunchs[i].last_expense_cover"></ion-input>
-                    </ion-item>
-                </ion-col> -->
-              <!--   <ion-col>
-                    <ion-item>
-                        <ion-label color="primary" floating>PA Cover</ion-label>
-                        <ion-input [(ngModel)]="misslunchs[i].pa_cover"></ion-input>
-                    </ion-item>
-                </ion-col>
-                <ion-col>
-                    <ion-item>
-                        <ion-label color="primary" floating>Critical Illness Cover</ion-label>
-                        <ion-input [(ngModel)]="misslunchs[i].critical_illness_cover"></ion-input>
-                    </ion-item>
-                </ion-col> -->
-            
-     
-        <!-- <button ion-button round (click)="addmisslunch()"> Add Insurance &nbsp;&nbsp;&nbsp;
-                <ion-icon name="add"></ion-icon>
-        </button> -->
-    
 
 </ion-content>
-<ion-footer>
-    <ion-row>
-        <ion-col></ion-col>
-        <ion-col><button color='secondary' ion-button round (click)="nextTab()"> Next
-                         &nbsp;&nbsp;&nbsp;<ion-icon name="ios-arrow-forward"></ion-icon>
-            </button></ion-col>
-        <ion-col></ion-col>
-    </ion-row>
-</ion-footer>
