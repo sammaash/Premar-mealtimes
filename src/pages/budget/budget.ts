@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {GlobalsProvider} from '../../providers/globals/globals';
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import { Observable } from 'rxjs/Observable';
 
 /**
  * Generated class for the BudgetPage page.
@@ -8,62 +10,68 @@ import {GlobalsProvider} from '../../providers/globals/globals';
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-interface misslunch {
-    lunchvalue: string
-}
-interface reasone{
-    lunchvalue: null
-    }
+
     
 @IonicPage()
 @Component({
   selector: 'page-budget',
   templateUrl: 'budget.html',
 })
+
 export class BudgetPage {
 
 
-misslunchs: misslunch[] = [];
-    misslunchsJSON: misslunch[] = [];
-    reasones: reasone[] = [];
-    reasonesJSON: reasone[] = [];
-    lunches: number = 0;
+
     monthlyearnings: string = "Below 10,000";
     foodbudget: string = "Below 5,000";
     lunch: string = "100 and below";
     paylunch: string = "YES";
     lunchcost: string = "100 and below";
 
-
+budgetList: AngularFireList<any>;
   constructor(public navCtrl: NavController, public navParams: NavParams,
-  public globals: GlobalsProvider) {
+  public globals: GlobalsProvider,
+  public afDatabase: AngularFireDatabase) {
+
+  this.budgetList = afDatabase.list('/budget');
         
-        this.addmisslunch();
-        this.addreasone();
+    }
+
+  nextTab(monthlyearnings,foodbudget,lunch,paylunch,lunchcost){
+  const newBudgetRef = this.budgetList.push({});
+  newBudgetRef.set({
+      monthlyearnings:this.monthlyearnings,
+      foodbudget:this.foodbudget,
+      lunch:this.lunch,
+      paylunch:this.paylunch,
+      lunchcost:this.lunchcost
+      
+    }).then( newBudget => {
+      //this.navCtrl.pop();
+    }, error => {
+      console.log(error);
+    });
+    this.navCtrl.parent.select(1);
 
   }
   
-  nextTab() {
-            this.navCtrl.parent.select(1);
+  //nextTab() {
+
+
+
+
+
+
+
+
+           //this.navCtrl.parent.select(1);
         
-        }
+        //}
    
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad BudgetPage');
   }
- addmisslunch() {
-        let misslunch: misslunch = {
-            lunchvalue: null
-            
-        };
-        this.misslunchs.push(misslunch);
-    }
-    addreasone() {
-        let reasone: reasone = {
-            lunchvalue: null
-        };
-        this.reasones.push(reasone);
-    }
+
 }
 

@@ -3,6 +3,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { Firebase } from '@ionic-native/firebase';
+//angularfire imports
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+
+export const firebaseConfig = {
+    apiKey: "AIzaSyC9sv-EILi-uaNNPj6R2otHryoAF_EIwcg",
+    authDomain: "trial-9a321.firebaseapp.com",
+    databaseURL: "https://trial-9a321.firebaseio.com",
+    projectId: "trial-9a321",
+    storageBucket: "",
+    messagingSenderId: "73247815828"
+};
 
 import { ExpensesPage } from '../pages/expenses/expenses';
 import { InvestmentsPage } from '../pages/investments/investments';
@@ -45,7 +57,9 @@ import { IonicStorageModule } from '@ionic/storage';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    AngularFireModule.initializeApp(firebaseConfig), 
+        AngularFireDatabaseModule 
   ],
   bootstrap: [IonicApp],
   entryComponents: [
