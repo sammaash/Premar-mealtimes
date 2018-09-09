@@ -23,7 +23,8 @@
                         <ion-label text-wrap stacked color="primary">
                             Which variety of meat do you prefer? 
                         </ion-label>
-                        <ion-select [(ngModel)]="principleLifestyle.variety">
+                        <ion-select [(ngModel)]="variety">
+                            <ion-option value="N/A">SELECT</ion-option>
                             <ion-option value="chicken">chicken</ion-option>
                             <ion-option value="beef">beef</ion-option>
                             <ion-option value="goat">goat</ion-option>
@@ -38,7 +39,8 @@
                         <ion-label text-wrap stacked color="primary">
                             What time are you most likely to need takeout food?
                         </ion-label>
-                        <ion-select [(ngModel)]="principleLifestyle.takeaway">
+                        <ion-select [(ngModel)]="takeaway">
+                            <ion-option value="N/A">SELECT</ion-option>
                             <ion-option value="Morning"> Morning(breakfast)</ion-option>
                             <ion-option value="Afternoon"> Afternoon(lunch time)</ion-option>
                             <ion-option value="Evening"> Evening(supper)</ion-option>
@@ -52,7 +54,8 @@
                         <ion-label text-wrap stacked color="primary">
                             I’m more likely to buy lunch that? 
                         </ion-label>
-                        <ion-select >
+                        <ion-select [(ngModel)]="likelunch">
+                            <ion-option value="N/A">SELECT</ion-option>
                             <ion-option value="0">is cheap</ion-option>
                             <ion-option value="1">looks beautiful/good</ion-option>
                             <ion-option value="2">feels home cooked</ion-option>
@@ -69,7 +72,8 @@
                         <ion-label text-wrap stacked color="primary">
                             Where do you think you will take lunch tomorrow? 
                         </ion-label>
-                        <ion-select >
+                        <ion-select [(ngModel)]="lunchkesho" >
+                            <ion-option value="N/A">SELECT</ion-option>
                             <ion-option value="0"> Carry food from home</ion-option>
                             <ion-option value="1"> Go to a hotel/eatery</ion-option>
                             <ion-option value="2"> Buy from an office supplier</ion-option>
@@ -91,6 +95,7 @@
                             Do you ever skip/miss lunch?
                         </ion-label>
                         <ion-select [(ngModel)]="lunches">
+                            <ion-option value="N/A">SELECT</ion-option>
                             <ion-option value="0">NO</ion-option>
                             <ion-option value="1">YES</ion-option>
                         </ion-select>
@@ -111,6 +116,7 @@
                             What is the most likely reason? 
                         </ion-label>
                         <ion-select [(ngModel)]="reason">
+                            <ion-option value="N/A">SELECT</ion-option>
                             <ion-option value="no money">no money</ion-option>
                             <ion-option value="no time ">no time </ion-option>
                             <ion-option value="no options">no options </ion-option>
@@ -137,7 +143,8 @@
                             <ion-label text-wrap stacked color="primary" >
                                 Have you ever been unable to concentrate at work because you skipped lunch?
                             </ion-label>
-                            <ion-select [(ngModel)]="principleLifestyle.work">
+                            <ion-select [(ngModel)]="work">
+                                <ion-option value="N/A">SELECT</ion-option>
                                 <ion-option value="0"> Yes</ion-option>
                                 <ion-option value="1"> No</ion-option>
 
@@ -150,7 +157,7 @@
                             <ion-label text-wrap stacked color="primary" floating>
                                 Why don't you carry lunch from home?
                             </ion-label>
-                            <ion-input   type="text" [(ngModel)]="principleLifestyle.lunch"></ion-input>
+                            <ion-input   type="text" [(ngModel)]="lunchi"></ion-input>
                         </ion-item>
                     </ion-row>
                 </ion-col>
@@ -163,6 +170,7 @@
                             Do you order food online? 
                         </ion-label>
                         <ion-select [(ngModel)]="challenges" >
+                            <ion-option value="N/A">SELECT</ion-option>
                             <ion-option value="1"> Yes</ion-option>
                             <ion-option value="0"> No</ion-option>
 
@@ -178,7 +186,7 @@
                     <ion-item>
                         <ion-label text-wrap stacked color="primary" floating> Where do you order food online from?
                         </ion-label>
-                        <ion-input   type="text" [(ngModel)]="principleLifestyle.food"></ion-input>
+                        <ion-input   type="text" [(ngModel)]="onlinefrom"></ion-input>
                     </ion-item>
 
 
@@ -186,7 +194,7 @@
                         <ion-label text-wrap stacked color="primary" floating>
                             What can make you order for food while you are in the office?
                         </ion-label>
-                        <ion-input  type="text" [(ngModel)]="principleLifestyle.office" ></ion-input>
+                        <ion-input  type="text" [(ngModel)]="office" ></ion-input>
                     </ion-item>
 
 
@@ -194,20 +202,20 @@
                         <ion-label text-wrap stacked color="primary" floating>
                             What can make you order for food while you are at home?
                         </ion-label>
-                        <ion-input  type="text" [(ngModel)]="principleLifestyle.home" ></ion-input>
+                        <ion-input  type="text" [(ngModel)]="home" ></ion-input>
                     </ion-item>
 
                     <ion-item>
                         <ion-label text-wrap stacked color="primary" floating>
-                            What can make you order for food while you are at home?
+                            What can make you order for food while you are at the office?
                         </ion-label>
-                        <ion-input  type="text" [(ngModel)]="principleLifestyle.home" ></ion-input>
+                        <ion-input  type="text" [(ngModel)]="office" ></ion-input>
                     </ion-item>
 
                     <ion-item>
                         <ion-label text-wrap stacked color="primary" floating>What challenge have you faced ordering food online?
                         </ion-label>
-                        <ion-input  type="text" [(ngModel)]="principleLifestyle.challenge" ></ion-input>
+                        <ion-input  type="text" [(ngModel)]="challenge" ></ion-input>
                     </ion-item>
                 </ion-col>
             </ion-row>
@@ -217,7 +225,7 @@
                         <ion-label text-wrap stacked color="primary">
                             What else are you missing now from the food you get?
                         </ion-label>
-                        <ion-textarea type="text" [(ngModel)]="principleLifestyle.missed"  ></ion-textarea>
+                        <ion-textarea type="text" [(ngModel)]="missed"  required="required"></ion-textarea>
                     </ion-item>
                 </ion-col>
             </ion-row>

@@ -22,23 +22,25 @@ export class BudgetPage {
 
 
 
-    monthlyearnings: string = "Below 10,000";
-    foodbudget: string = "Below 5,000";
-    lunch: string = "100 and below";
-    paylunch: string = "YES";
-    lunchcost: string = "100 and below";
+    monthlyearnings: string = "N/A";
+    foodbudget: string = "N/A";
+    lunch: string = "N/A";
+    paylunch: string = "N/A";
+    lunchcost: string = "N/A";
 
 budgetList: AngularFireList<any>;
   constructor(public navCtrl: NavController, public navParams: NavParams,
   public globals: GlobalsProvider,
   public afDatabase: AngularFireDatabase) {
-
-  this.budgetList = afDatabase.list('/budget');
-        
+this.budgetList = afDatabase.list('/budget');
+   
     }
 
   nextTab(monthlyearnings,foodbudget,lunch,paylunch,lunchcost){
+
+  //if (typeof(budgetlist) === "null") {
   const newBudgetRef = this.budgetList.push({});
+  
   newBudgetRef.set({
       monthlyearnings:this.monthlyearnings,
       foodbudget:this.foodbudget,
@@ -52,6 +54,11 @@ budgetList: AngularFireList<any>;
       console.log(error);
     });
     this.navCtrl.parent.select(1);
+ 
+//}
+//else{
+//this.navCtrl.parent.select(1);
+//}
 
   }
   
