@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {GlobalsProvider} from '../../providers/globals/globals';
-
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import { FinishPage } from '../finish/finish'; 
  
 interface misslunch {
     lunchvalue: string
@@ -26,8 +27,17 @@ export class LifestylePage
     lunchkesho: string = "N/A";
     work: string = "N/A";
     lunches: string = "N/A";
-    reason: number = "N/A";
-    challenges: number = "N/A";
+    reason: string = "N/A";
+    challenges: string = "N/A";
+    lunchi: string = "";
+    lunchvalue: string = "";
+    onlinefrom: string = "";
+    office: string = "";
+    home: string = "";
+    challenge: string = "";
+    missed: string = "";
+    //monthlyearnings: string = "";
+    
 
 misslunchs: misslunch[] = [];
     misslunchsJSON: misslunch[] = [];
@@ -43,26 +53,113 @@ misslunchs: misslunch[] = [];
  selectOptions: any;
  selectOptions_indemnity: any;
 
-
+  lifestyleList: AngularFireList<any>;
   constructor(public navCtrl: NavController, public navParams: NavParams,
-  public globals: GlobalsProvider) {
-  this.addmisslunch();
+  public globals: GlobalsProvider,
+  public afDatabase: AngularFireDatabase) {
+ this.monthlyearnings = navParams.get('monthlyearnings');
+ this.globals.monthlyearnings=this.monthlyearnings;
+ this.foodbudget = navParams.get('foodbudget');
+ this.globals.foodbudget=this.foodbudget;
+ this.lunch = navParams.get('lunch');
+ this.globals.lunch=this.lunch;
+ this.paylunch = navParams.get('paylunch');
+ this.globals.paylunch=this.paylunch;
+ this.lunchcost = navParams.get('lunchcost');
+ this.globals.lunchcost=this.lunchcost;
+
+
+this.addmisslunch();
         this.addreasone();
         this.addreasone2();
 
+  
+this.lifestyleList = afDatabase.list('/lifestyle');
+   
+    }
 
 
-   }
+   
+  
 
-nextTab() {
-        //let message = this.isDataValid();
-        //if (message == null) {
-            //this.globals.contacts = this.principleLifestyle;
-            this.navCtrl.parent.select(2);
-        //}
-        //else
-            //this.globals.showAlert("Lifestyle  Info", message);
-        //            alert(message); // show error message
+   
+
+nextTab(variety,takeaway,likelunch,lunchkesho,lunches,reason,lunchvalue,work,lunchi,challenges,onlinefrom,office,home,challenge,missed) {
+ //monthlyearnings: string = "";
+
+
+   this.monthlyearnings = this.globals.monthlyearnings;
+   this.foodbudget = this.globals.foodbudget;
+   this.lunch = this.globals.lunch;
+   this.paylunch = this.globals.paylunch;
+   this.lunchcost = this.globals.lunchcost;
+
+
+  const newlifestyleRef = this.lifestyleList.push({});
+  
+  newlifestyleRef.set({
+
+      
+      //
+      Preferredmeatvariety:this.variety,
+      
+      timemostlikelytoneedtakeoutfood:this.takeaway,
+      lunchmostlikelytobuy:this.likelunch,
+      lunchchoicetommorow:this.lunchkesho,
+      Doyoumisslunch:this.lunches,
+      Reasontomisslunch:this.reason,
+      otherreason:this.lunchvalue,
+      Doyouconcentrateaftermissinglunch:this.work,
+      Whydontyoucarrylunchfromhome:this.lunchi,
+      Doyouorderfoodonline:this.challenges,
+      Wheredoyouorderfoodfrom:this.onlinefrom,
+      whyorderfoodattheoffice:this.office,
+      whyorderfoodathome:this.home,
+      challengeswhileorderingfood:this.challenge,
+      Whatareyoumissingfromthefoodyougetnow:this.missed,
+      monthlyearnings:this.monthlyearnings,
+      foodbudget:this.foodbudget,
+      lunch:this.lunch,
+      paylunch:this.paylunch,
+      lunchcost:this.lunchcost,
+      
+    }).then( newlifestyle => {
+      
+    }, 
+    error => {
+    console.log(error);
+    }
+    );
+    this.navCtrl.parent.select(2);
+
+
+    this.navCtrl.push(FinishPage, {
+      variety:this.variety,
+      takeaway:this.takeaway,
+      likelunch:this.likelunch,
+      lunchkesho:this.lunchkesho,
+      lunches:this.lunches,
+      reason:this.reason,
+      lunchvalue:this.lunchvalue,
+      work:this.work,
+      lunchi:this.lunchi,
+      challenges:this.challenges,
+      onlinefrom:this.onlinefrom,
+      office:this.office,
+      home:this.home,
+      challenge:this.challenge,
+      missed:this.missed,
+      monthlyearnings:this.monthlyearnings,
+      foodbudget:this.foodbudget,
+      lunch:this.lunch,
+      paylunch:this.paylunch,
+      lunchcost:this.lunchcost,
+});
+ 
+
+
+
+
     }
 
     //isDataValid(): string {
@@ -97,6 +194,7 @@ nextTab() {
 
 
   
+    
 
 
   ionViewDidLoad() {

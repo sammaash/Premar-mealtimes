@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {GlobalsProvider} from '../../providers/globals/globals';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
+import { LifestylePage } from '../lifestyle/lifestyle'; 
+import { FinishPage } from '../finish/finish'; 
 
 /**
  * Generated class for the BudgetPage page.
@@ -59,6 +61,14 @@ this.budgetList = afDatabase.list('/budget');
 //else{
 //this.navCtrl.parent.select(1);
 //}
+
+ this.navCtrl.push(LifestylePage,{
+      monthlyearnings:monthlyearnings,
+      foodbudget:foodbudget,
+      lunch:lunch,
+      paylunch:paylunch,
+      lunchcost:lunchcost
+});
 
   }
   

@@ -38,6 +38,7 @@ import { GlobalsProvider } from '../providers/globals/globals';
 import { AlertService } from '../providers/alert-service/alert-service';
 import {SocialSharing} from '@ionic-native/social-sharing';
 import { IonicStorageModule } from '@ionic/storage';
+import { GlobalProvider } from '../providers/global/global';
 
 @NgModule({
   declarations: [
@@ -81,7 +82,8 @@ import { IonicStorageModule } from '@ionic/storage';
     SplashScreen,
     Firebase,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    GlobalsProvider, AlertService, SocialSharing
+    GlobalsProvider, AlertService, SocialSharing,
+    GlobalProvider
   ]
 })
 export class AppModule {}

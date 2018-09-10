@@ -205,17 +205,15 @@
                         <ion-input  type="text" [(ngModel)]="home" ></ion-input>
                     </ion-item>
 
-                    <ion-item>
-                        <ion-label text-wrap stacked color="primary" floating>
-                            What can make you order for food while you are at the office?
-                        </ion-label>
-                        <ion-input  type="text" [(ngModel)]="office" ></ion-input>
-                    </ion-item>
+                   
 
                     <ion-item>
                         <ion-label text-wrap stacked color="primary" floating>What challenge have you faced ordering food online?
                         </ion-label>
                         <ion-input  type="text" [(ngModel)]="challenge" ></ion-input>
+
+                        <!--  <ion-input  type="hidden" [(ngModel)]="monthlyearnings"  ></ion-input> -->
+
                     </ion-item>
                 </ion-col>
             </ion-row>
@@ -231,7 +229,7 @@
             </ion-row>
         </ion-card>
         
-    <button ion-button round color="secondary" (click)="nextTab()" right> Next
+    <button ion-button round color="secondary" (click)="nextTab(variety,takeaway,likelunch,lunchkesho,lunches,reason,lunchvalue,work,lunchi,challenges,onlinefrom,office,home,challenge,missed)" right> Next
         &nbsp;&nbsp;&nbsp;<ion-icon name="ios-arrow-forward"></ion-icon>
     </button>
     </ion-card>

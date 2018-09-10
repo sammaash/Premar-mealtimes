@@ -19,19 +19,19 @@
                  <ion-col>
                     <ion-item>
                         <ion-label text-wrap stacked color="primary" floating>Phone No.</ion-label>
-                        <ion-input type='phone' [(ngModel)]="principleContacts.phone"></ion-input>
+                        <ion-input type='phone' [(ngModel)]="phone"></ion-input>
                     </ion-item>
                 </ion-col>
                 <ion-col>
                     <ion-item>
                         <ion-label text-wrap stacked color="primary" floating>Email Address</ion-label>
-                        <ion-input type='email' [(ngModel)]="principleContacts.email"></ion-input>
+                        <ion-input type='email' [(ngModel)]="email"></ion-input>
                     </ion-item>
                 </ion-col>
             </ion-row>
         </ion-grid>
     </ion-card>
-    <button ion-button round color="secondary" (click)="nextTab()" right> Finish
+    <button ion-button round color="secondary" (click)="nextTab(phone,email)" right> Finish
                           &nbsp;&nbsp;&nbsp;<ion-icon name="checkmark"></ion-icon>
             </button>
     </ion-card>

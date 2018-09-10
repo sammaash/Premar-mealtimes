@@ -39,6 +39,28 @@ interface Income {
 
 @Injectable()
 export class GlobalsProvider {
+    monthlyearnings: any;
+    foodbudget: any;
+    lunch: any;
+    paylunch: any;
+    lunchcost: any;
+    takeaway: "any";
+    variety: "any";
+    likelunch: "any";
+    lunchkesho: "any";
+    work: string = "any";
+    lunches: string = "any";
+    reason: string = "any";
+    challenges: string = "any";
+    lunchi: string = "any";
+    lunchvalue: string = "any";
+    onlinefrom: string = "any";
+    office: string = "any";
+    home: string = "any";
+    challenge: string = "any";
+    missed: string = "any";
+    phone: string ="any";
+    email: string ="any";
 
     childrenDetails: Child[];
     spouseDetails: Person;

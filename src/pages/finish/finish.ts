@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {GlobalsProvider} from '../../providers/globals/globals';
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+
 
 interface Contact {
      phone: string,email: string
@@ -14,35 +16,135 @@ interface Contact {
 })
 export class FinishPage {
 
-principleContacts: Contact = {
-        //        country: "", city: "", estate: "", house_no: "",
-         phone: "", email: ""
-    }
+phone: string = "";
+    email: string = "";
 
 
+    finalList: AngularFireList<any>;
   constructor(public navCtrl: NavController, public navParams: NavParams,
-  public globals: GlobalsProvider) {}
+  public globals: GlobalsProvider,public afDatabase: AngularFireDatabase) {
 
-nextTab() {
-        let message = this.isDataValid();
-        if (message == null) {
-            this.globals.contacts = this.principleContacts;
-            this.navCtrl.parent.select(2);
-        }
-        else
-            this.globals.showAlert("Contact Info", message);
-        //            alert(message); // show error message
-    }
+  this.monthlyearnings = navParams.get('monthlyearnings');
+ this.globals.monthlyearnings=this.monthlyearnings;
+ this.foodbudget = navParams.get('foodbudget');
+ this.globals.foodbudget=this.foodbudget;
+ this.lunch = navParams.get('lunch');
+ this.globals.lunch=this.lunch;
+ this.paylunch = navParams.get('paylunch');
+ this.globals.paylunch=this.paylunch;
+ this.lunchcost = navParams.get('lunchcost');
+ this.globals.lunchcost=this.lunchcost;
+ this.variety = navParams.get('variety');
+ this.globals.variety=this.variety;
+ this.takeaway = navParams.get('takeaway');
+ this.globals.takeaway=this.takeaway;
+ this.likelunch = navParams.get('likelunch');
+ this.globals.likelunch=this.likelunch;
+ this.lunchkesho = navParams.get('lunchkesho');
+ this.globals.lunchkesho=this.lunchkesho;
+this.lunches = navParams.get('lunches');
+ this.globals.lunches=this.lunches;
+this.reason = navParams.get('reason');
+ this.globals.reason=this.reason;
+this.lunchvalue = navParams.get('lunchvalue');
+ this.globals.lunchvalue=this.lunchvalue;
+this.work = navParams.get('work');
+ this.globals.work=this.work;
+ this.lunchi = navParams.get('lunchi');
+ this.globals.lunchi=this.lunchi;
+this.challenges = navParams.get('challenges');
+ this.globals.challenges=this.challenges;
+ this.onlinefrom = navParams.get('onlinefrom');
+ this.globals.onlinefrom=this.onlinefrom;
+ this.office = navParams.get('office');
+ this.globals.office=this.office;
+ this.home = navParams.get('home');
+ this.globals.home=this.home;
+ this.challenge = navParams.get('challenge');
+ this.globals.challenge=this.challenge;
+ this.missed = navParams.get('missed');
+ this.globals.missed=this.missed;
 
-    isDataValid(): string {
+
+
+
+
+
+
+this.finalList = afDatabase.list('/final');
+
+  }
+
+nextTab(phone,email) {
+        this.monthlyearnings = this.globals.monthlyearnings;
+   this.foodbudget = this.globals.foodbudget;
+   this.lunch = this.globals.lunch;
+   this.paylunch = this.globals.paylunch;
+   this.lunchcost = this.globals.lunchcost;
+   this.variety = this.globals.variety;
+   this.takeaway = this.globals.takeaway;
+   this.likelunch = this.globals.likelunch;
+   this.lunchkesho = this.globals.lunchkesho;
+   this.lunches = this.globals.lunches;
+   this.reason = this.globals.reason;
+   this.lunchvalue = this.globals.lunchvalue;
+   this.work = this.globals.work;
+   this.lunchi = this.globals.lunchi;
+   this.challenges = this.globals.challenges;
+   this.onlinefrom = this.globals.onlinefrom;
+   this.office = this.globals.office;
+   this.home = this.globals.home;
+   this.challenge = this.globals.challenge;
+   this.missed = this.globals.missed;
+
+const newfinalRef = this.finalList.push({});
+  
+  newfinalRef.set({
+
       
-           
-        if (!this.globals.isValidPhone(this.principleContacts.phone))
-            return "Please enter a valid Phone Number!";
-       
-        if (!this.globals.isValidEmail(this.principleContacts.email))
-            return "Please enter a valid Email Address!";
-        return null;
+      phone:this.phone,
+      email:this.email,
+      Preferredmeatvariety:this.variety,
+      timemostlikelytoneedtakeoutfood:this.takeaway,
+      lunchmostlikelytobuy:this.likelunch,
+      lunchchoicetommorow:this.lunchkesho,
+      Doyoumisslunch:this.lunches,
+      Reasontomisslunch:this.reason,
+      otherreason:this.lunchvalue,
+      Doyouconcentrateaftermissinglunch:this.work,
+      Whydontyoucarrylunchfromhome:this.lunchi,
+      Doyouorderfoodonline:this.challenges,
+      Wheredoyouorderfoodfrom:this.onlinefrom,
+      whyorderfoodattheoffice:this.office,
+      whyorderfoodathome:this.home,
+      challengeswhileorderingfood:this.challenge,
+      Whatareyoumissingfromthefoodyougetnow:this.missed,
+      monthlyearnings:this.monthlyearnings,
+      foodbudget:this.foodbudget,
+      lunch:this.lunch,
+      paylunch:this.paylunch,
+      lunchcost:this.lunchcost
+      
+    }).then( newfinal => {
+      
+    }, 
+    error => {
+    console.log(error);
+    }
+    );
+    alert("Thank you for your contribution in the questionnaire");
+ 
+
+
+
+
+    
+
+
+
+
+
+
     }
 
   
@@ -51,7 +153,6 @@ nextTab() {
     console.log('ionViewDidLoad FinishPage');
   }
  
- 
+ }
     
 
-}
