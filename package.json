@@ -29,6 +29,7 @@
     "@ionic/storage": "^2.1.3",
     "angularfire2": "^5.0.0-rc.12",
     "build": "^0.1.4",
+    "cordova": "^8.0.0",
     "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-firebase": "^1.1.3",
     "cordova-plugin-ionic-keyboard": "^2.0.5",
@@ -37,6 +38,7 @@
     "cordova-plugin-whitelist": "^1.3.3",
     "cordova-plugin-x-socialsharing": "^5.4.0",
     "firebase": "^5.4.2",
+    "ionic": "^4.1.2",
     "ionic-angular": "3.9.2",
     "ionicons": "3.0.0",
     "rxjs": "5.5.10",
@@ -45,6 +47,7 @@
   },
   "devDependencies": {
     "@ionic/app-scripts": "3.1.9",
+    "@ionic/lab": "1.0.9",
     "typescript": "~2.6.2"
   },
   "description": "An Ionic project",
