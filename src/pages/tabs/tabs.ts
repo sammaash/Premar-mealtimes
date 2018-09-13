@@ -22,7 +22,7 @@ import {GlobalsProvider} from '../../providers/globals/globals';
 })
 export class TabsPage {
 
-    @ViewChild('citidellTabs') tabRef: Tabs;
+    @ViewChild('navTabs') tabRef: Tabs;
 
     tab1Root = DetailsOfPrinciplePage;
     tab2Root = FinishPage;
