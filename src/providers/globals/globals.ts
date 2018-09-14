@@ -11,7 +11,7 @@ import {
   See https://angular.io/guide/dependency-injection for more info on providers
   and Angular DI.
 */
-
+ 
 interface Person {
     first_name: string, middle_name: string, surname: string, dob: string,
     marital_status: string, occupation: string, employer: string
@@ -67,6 +67,7 @@ export class GlobalsProvider {
     principleDetails: Person;
     income: {income: Income, extra: ExtraIncome[]};
     contacts: any;
+    public firebaseRef: string;
 
     expenses: {monthlyExpenses: MonthlyExpense, loanExpenses: Loan[]};
     investments: {
@@ -83,7 +84,7 @@ export class GlobalsProvider {
         groupEmployeeBenefits: GroupEmployeeBenefit[]
     };
     confirmation: any;
-
+ 
     tabs: Tabs;
 
     constructor(private alertController: AlertController) {

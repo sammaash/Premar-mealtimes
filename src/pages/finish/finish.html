@@ -7,15 +7,22 @@
 
 
 
-<ion-content padding>
-    <ion-card>
+<ion-content padding class="clearbg">
+    <div ion-row  justify-content-center>
+        <ion-col col-lg-3 col-sm-2 class="header-logo">
+            <img src="../assets/imgs/logo_.png" />
+        </ion-col>
+    </div>
+            
+    <div ion-row  justify-content-center>
+    <ion-card ion-col col-lg-6>
         <ion-label text-wrap stacked color="primary">
             <h1 ion-text color="dark">Contact Details</h1>
         </ion-label>
         <ion-card>
             <ion-grid>
 
-                <ion-row>
+                <ion-row  justify-content-center>
                     <ion-col col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3F>
                         <ion-item>
                             <ion-label text-wrap stacked color="primary" floating>Phone No.</ion-label>
@@ -29,13 +36,23 @@
                         </ion-item>
                     </ion-col>
                 </ion-row>
+            <ion-row  justify-content-center>
+                <ion-col col-12 col-sm-12 col-md-12 col-lg-8 col-xl-3F>
+                    <ion-item>
+                        <ion-label text-wrap stacked color="primary">
+                            Any other comments to help us serve you or your friend better? (Optional)
+                        </ion-label>
+                        <ion-textarea type="text" [(ngModel)]="missed"  required="required"></ion-textarea>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
             </ion-grid>
         </ion-card>
         <button ion-button round color="secondary" (click)="nextTab(phone,email)" right> Finish
             &nbsp;&nbsp;&nbsp;<ion-icon name="checkmark"></ion-icon>
         </button>
     </ion-card>
-
+    </div>
 
 
 </ion-content>

@@ -10,10 +10,9 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class GlobalProvider {
 public monthlyearnings: string;
-public firebaseRef: string;
 
   constructor(public http: HttpClient) {
     console.log('Hello GlobalProvider Provider');
   }
-
-}
+ 
+} 

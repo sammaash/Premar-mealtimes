@@ -19,7 +19,7 @@
 scroll-content {
   padding-bottom:0!important;
 }
-
+.header-logo {background-color: white;}
 // theme alert/select popup dialogs
 .alert-wrapper .alert-head {background-color:map-get($colors, primary);color:map-get($colors, text-primary-color);}
 .alert-wrapper .alert-message {background-color:map-get($colors, secondary);color:map-get($colors, text-primary-color);}
@@ -30,7 +30,7 @@ scroll-content {
 // teme sidebar menu
 .sidemenu-content {background:map-get($colors, secondary);}///-image: url('../assets/imgs/sidemenu_bg.png');}
 .sidemenu-content .scroll-content {padding:0% !important;overflow-y:hidden;}
-// sidemenu header image (sliders)
+// sidemenu header image (sliders) 
 .sidemenu-content .header-image {width:100%;height:30%;max-height: 30% !important;}
 .sidemenu-content .header-image .slide-zoom {height:100%;}
 .sidemenu-content .header-image .slide-zoom div {height:100%;}
@@ -56,7 +56,7 @@ ion-card ion-grid p {height:20px;width:20px;border-radius:10px;float:right !impo
                      background-color:rgb(255,0,0);color:white !important;font-weight:bold;}
 ion-card, ion-content, ion-footer{text-align:center;}
 .clearbg, .ion-content {background-color:rgba(255,255,255,0);}
-.ion-nav, .ion-page {background-image:url("../assets/imgs/img009.png");}
+.ion-nav, .ion-page {background-image:url("../assets/imgs/009.png") center;background-size:cover;}
 .shadow{box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);background-color:#fff;}
 
 #side-menu-view {z-index:1000;}
