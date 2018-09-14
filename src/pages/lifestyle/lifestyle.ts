@@ -95,7 +95,9 @@ nextTab(variety,takeaway,likelunch,lunchkesho,lunches,reason,lunchvalue,work,lun
    this.lunchcost = this.globals.lunchcost;
 
 
-  const newlifestyleRef = this.lifestyleList.push({});
+  //const newlifestyleRef = this.lifestyleList.push({});
+  const newlifestyleRef = this.lifestyleList.push({ name: this.globals.firebaseRef });
+      
   
   newlifestyleRef.set({
 

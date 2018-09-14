@@ -42,6 +42,7 @@ this.budgetList = afDatabase.list('/budget');
 
   //if (typeof(budgetlist) === "null") {
   const newBudgetRef = this.budgetList.push({});
+    this.globals.firebaseRef = newBudgetRef;
   
   newBudgetRef.set({
       monthlyearnings:this.monthlyearnings,
