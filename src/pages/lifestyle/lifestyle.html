@@ -8,231 +8,238 @@
 
 
 <ion-content padding class="clearbg">
-    <div ion-row  justify-content-center>
+    <div ion-row justify-content-center class="clearbg">
         <ion-col col-lg-3 col-sm-2 class="header-logo">
             <img src="../assets/imgs/logo_.png" />
         </ion-col>
     </div>
-            
-    <div ion-row  justify-content-center>
-    <ion-card ion-col col-lg-6>
-        <ion-label text-wrap stacked color="primary">
-            <h1 ion-text color="dark">Lunch Choices and Food Ordering Behavior</h1>
-        </ion-label>
-        <ion-card>
-            <!-- <ion-card-header>
+
+    <div ion-row justify-content-center class="clearbg">
+        <ion-card ion-col col-lg-8>
+            <ion-label text-wrap stacked color="primary">
+                <h1 ion-text color="dark">Lunch Choices and Food Ordering Behavior</h1>
+            </ion-label>
+            <ion-card>
+                <!-- <ion-card-header>
                 food variety
             </ion-card-header> -->
 
-            <ion-row>
-                <ion-col col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3F>
-                    <ion-item>
-                        <ion-label text-wrap stacked color="primary">
-                            Which variety of meat do you prefer? 
-                        </ion-label>
-                        <ion-select [(ngModel)]="variety">
-                            <ion-option value='' [disabled]="true">-- Select --</ion-option>
-                            <ion-option value="chicken">chicken</ion-option>
-                            <ion-option value="beef">beef</ion-option>
-                            <ion-option value="goat">goat</ion-option>
-                            <ion-option value="pork">pork</ion-option>
-                            <ion-option value="lamb">lamb</ion-option>
-                            <ion-option value="fish">fish</ion-option>
-                        </ion-select>
-                    </ion-item>
-                </ion-col>
-                <ion-col col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3F>
-                    <ion-item>
-                        <ion-label text-wrap stacked color="primary">
-                            What time are you most likely to need takeout food?
-                        </ion-label>
-                        <ion-select [(ngModel)]="takeaway">
-                            <ion-option value='' [disabled]="true">-- Select --</ion-option>
-                            <ion-option value="Morning"> Morning(breakfast)</ion-option>
-                            <ion-option value="Afternoon"> Afternoon(lunch time)</ion-option>
-                            <ion-option value="Evening"> Evening(supper)</ion-option>
-                            <ion-option value="Evening"> Other(snack, etc.)</ion-option>
-                        </ion-select>
-                        <!-- <ion-input   type="text" [(ngModel)]="principleLifestyle.takeaway"></ion-input> -->
-                    </ion-item>
-                </ion-col>
-                <ion-col col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3F>
-                    <ion-item>
-                        <ion-label text-wrap stacked color="primary">
-                            I’m more likely to buy lunch that? 
-                        </ion-label>
-                        <ion-select [(ngModel)]="likelunch">
-                            <ion-option value='' [disabled]="true">-- Select --</ion-option>
-                            <ion-option value="0">is cheap</ion-option>
-                            <ion-option value="1">looks beautiful/good</ion-option>
-                            <ion-option value="2">feels home cooked</ion-option>
-                            <ion-option value="3">is healthy</ion-option>
-
-                        </ion-select>
-                    </ion-item>
-                </ion-col>
-            </ion-row>
-
-            <ion-row align-items-end>
-                <ion-col col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3F>
-                    <ion-item>
-                        <ion-label text-wrap stacked color="primary">
-                            Where do you think you will take lunch tomorrow? 
-                        </ion-label>
-                        <ion-select [(ngModel)]="lunchkesho" >
-                            <ion-option value='' [disabled]="true">-- Select --</ion-option>
-                            <ion-option value="0"> Carry food from home</ion-option>
-                            <ion-option value="1"> Go to a hotel/eatery</ion-option>
-                            <ion-option value="2"> Buy from an office supplier</ion-option>
-                            <ion-option value="3"> Order online</ion-option>
-                            <ion-option value="4"> Other</ion-option>
-                        </ion-select>
-                    </ion-item>
-                </ion-col>
-
-
-                <ion-col col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3F>
-                    <ion-item>
-                        <ion-label text-wrap stacked color="primary">
-                            Do you ever skip/miss lunch?
-                        </ion-label>
-                        <ion-select [(ngModel)]="lunches">
-                            <ion-option value='' [disabled]="true">-- Select --</ion-option>
-                            <ion-option value="0">NO</ion-option>
-                            <ion-option value="1">YES</ion-option>
-                        </ion-select>
-                    </ion-item>
-                </ion-col>
-            </ion-row>
-
-
-            <ion-row *ngIf="lunches == 1">
-                <ion-col *ngFor="let misslunch of misslunchs; let i = index" 
-                    col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3F>
-                    <ion-item>
-                        <ion-label text-wrap stacked color="primary">
-                            What is the most likely reason to skip lunch? 
-                        </ion-label>
-                        <ion-select [(ngModel)]="reason">
-                            <ion-option value='' [disabled]="true">-- Select --</ion-option>
-                            <ion-option value="no money">no money</ion-option>
-                            <ion-option value="no time ">no time </ion-option>
-                            <ion-option value="no options">no options </ion-option>
-                            <ion-option value="1">other</ion-option>
-                        </ion-select>
-                    </ion-item>
-                    
-
-                    <ion-row *ngIf="reason == 1">
-
-                        <ion-col *ngFor="let reasone of reasones;let i = index"   >
-
-                            <ion-item>
-                                <ion-label color="primary" floating>Reason to Miss lunch</ion-label>
-                                <ion-input [(ngModel)]="lunchvalue"></ion-input>
-                            </ion-item>
-
-                        </ion-col>
-
-
-                    </ion-row>
-                    <ion-row>
+                <ion-row align-items-end>
+                    <ion-col col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3F>
                         <ion-item>
-                            <ion-label text-wrap stacked color="primary" >
+                            <ion-label text-wrap stacked color="primary">
+                                Which variety of meat do you prefer?
+                            </ion-label>
+                            <ion-select [(ngModel)]="variety">
+                                <ion-option value='' [disabled]="true">-- Select --</ion-option>
+                                <ion-option value="chicken">chicken</ion-option>
+                                <ion-option value="beef">beef</ion-option>
+                                <ion-option value="goat">goat</ion-option>
+                                <ion-option value="pork">pork</ion-option>
+                                <ion-option value="lamb">lamb</ion-option>
+                                <ion-option value="fish">fish</ion-option>
+                            </ion-select>
+                        </ion-item>
+                    </ion-col>
+                    <ion-col col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3F>
+                        <ion-item>
+                            <ion-label text-wrap stacked color="primary">
+                                What time are you most likely to need takeout food?
+                            </ion-label>
+                            <ion-select [(ngModel)]="takeaway">
+                                <ion-option value='' [disabled]="true">-- Select --</ion-option>
+                                <ion-option value="Morning"> Morning(breakfast)</ion-option>
+                                <ion-option value="Afternoon"> Afternoon(lunch time)</ion-option>
+                                <ion-option value="Evening"> Evening(supper)</ion-option>
+                                <ion-option value="Evening"> Other(snack, etc.)</ion-option>
+                            </ion-select>
+                            <!-- <ion-input   type="text" [(ngModel)]="principleLifestyle.takeaway"></ion-input> -->
+                        </ion-item>
+                    </ion-col>
+                    <ion-col col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3F>
+                        <ion-item>
+                            <ion-label text-wrap stacked color="primary">
+                                I’m more likely to buy lunch that?
+                            </ion-label>
+                            <ion-select [(ngModel)]="likelunch">
+                                <ion-option value='' [disabled]="true">-- Select --</ion-option>
+                                <ion-option value="0">is cheap</ion-option>
+                                <ion-option value="1">looks beautiful/good</ion-option>
+                                <ion-option value="2">feels home cooked</ion-option>
+                                <ion-option value="3">is healthy</ion-option>
+
+                            </ion-select>
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+
+                <ion-row align-items-end>
+                    <ion-col col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3F>
+                        <ion-item>
+                            <ion-label text-wrap stacked color="primary">
+                                Where do you think you will take lunch tomorrow?
+                            </ion-label>
+                            <ion-select [(ngModel)]="lunchkesho">
+                                <ion-option value='' [disabled]="true">-- Select --</ion-option>
+                                <ion-option value="0"> Carry food from home</ion-option>
+                                <ion-option value="1"> Go to a hotel/eatery</ion-option>
+                                <ion-option value="2"> Buy from an office supplier</ion-option>
+                                <ion-option value="3"> Order online</ion-option>
+                                <ion-option value="4"> Other</ion-option>
+                            </ion-select>
+                        </ion-item>
+                    </ion-col>
+
+
+                    <ion-col col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3F>
+                        <ion-item>
+                            <ion-label text-wrap stacked color="primary">
+                                Do you ever skip/miss lunch?
+                            </ion-label>
+                            <ion-select [(ngModel)]="skipslunches">
+                                <ion-option value='' [disabled]="true">-- Select --</ion-option>
+                                <ion-option value="0">No</ion-option>
+                                <ion-option value="1">Yes</ion-option>
+                            </ion-select>
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+
+                <!--
+<ion-col col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3F>
+                        <ion-item>
+                            <ion-label text-wrap stacked color="primary">
+                                Do you ever skip/miss lunch?
+                            </ion-label>
+                            <ion-select [(ngModel)]="lunches">
+                                <ion-option value='' [disabled]="true">-- Select --</ion-option>
+                                <ion-option value="0">NO</ion-option>
+                                <ion-option value="1">YES</ion-option>
+                            </ion-select>
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+
+
+
+
+            -->
+                <ion-row *ngIf="skipslunches == 1" align-items-end>
+                    <ion-col col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3F>
+                        <ion-item>
+                            <ion-label text-wrap stacked color="primary">
+                                What is the most likely reason to skip/miss lunch?
+                            </ion-label>
+                            <ion-select [(ngModel)]="reason">
+                                <ion-option value='' [disabled]="true">-- Select --</ion-option>
+                                <ion-option value="no money">no money</ion-option>
+                                <ion-option value="no time ">no time </ion-option>
+                                <ion-option value="no options">no options </ion-option>
+                                <ion-option value="1">other</ion-option>
+                            </ion-select>
+                        </ion-item>
+                    </ion-col>
+
+                    <ion-col col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3F *ngIf="reason == '1'">
+                        <ion-item>
+                            <ion-label color="primary" stacked>Reason to skip/miss lunch</ion-label>
+                            <ion-input [(ngModel)]="lunchvalue"></ion-input>
+                        </ion-item>
+                    </ion-col>
+
+                    <ion-col col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3F>
+                        <ion-item>
+                            <ion-label text-wrap stacked color="primary">
                                 Have you ever been unable to concentrate at work because you skipped lunch?
                             </ion-label>
                             <ion-select [(ngModel)]="work">
                                 <ion-option value='' [disabled]="true">-- Select --</ion-option>
-                                <ion-option value="0"> Yes</ion-option>
-                                <ion-option value="1"> No</ion-option>
+                                <ion-option value="0"> No</ion-option>
+                                <ion-option value="1"> Yes</ion-option>
 
                             </ion-select>
 
                         </ion-item>
-                    </ion-row>
-                    <ion-row>
+                    </ion-col>
+
+                    <ion-col col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3F>
                         <ion-item>
                             <ion-label text-wrap stacked color="primary" floating>
                                 Why don't you carry lunch from home?
                             </ion-label>
-                            <ion-input   type="text" [(ngModel)]="lunchi"></ion-input>
+                            <ion-input type="text" [(ngModel)]="lunchi"></ion-input>
                         </ion-item>
-                    </ion-row>
-                </ion-col>
-            </ion-row>
+                    </ion-col>
+                </ion-row>
 
-            <ion-row>
-                <ion-col col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3F>
-                    <ion-item>
-                        <ion-label text-wrap stacked color="primary">
-                            Do you order food online? 
-                        </ion-label>
-                        <ion-select [(ngModel)]="challenges" >
-                            <ion-option value='' [disabled]="true">-- Select --</ion-option>
-                            <ion-option value="1"> Yes</ion-option>
-                            <ion-option value="0"> No</ion-option>
+                <ion-row align-items-end>
 
-                        </ion-select>
-                    </ion-item>
-                </ion-col>
-            </ion-row>
-            <ion-row *ngIf="challenges == 1">
+                    <ion-col col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3F>
+                        <ion-item>
+                            <ion-label text-wrap stacked color="primary">
+                                Do you order food online?
+                            </ion-label>
+                            <ion-select [(ngModel)]="challenges">
+                                <ion-option value='' [disabled]="true">-- Select --</ion-option>
+                                <ion-option value="0"> No</ion-option>
+                                <ion-option value="1"> Yes</ion-option>
 
-                <ion-col *ngFor="let reasone2 of reasone2s;let i = index" 
-                    col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3F>
+                            </ion-select>
+                        </ion-item>
+                    </ion-col>
 
-                    <ion-item>
-                        <ion-label text-wrap stacked color="primary" floating> Where do you order food online from?
-                        </ion-label>
-                        <ion-input   type="text" [(ngModel)]="onlinefrom"></ion-input>
-                    </ion-item>
-                </ion-col>
+                    <ion-col  *ngIf="challenges == 1" col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3F>
+                        <ion-item>
+                            <ion-label text-wrap stacked color="primary" floating> Where do you order food online from?
+                            </ion-label>
+                            <ion-input type="text" [(ngModel)]="onlinefrom"></ion-input>
+                        </ion-item>
+                    </ion-col>
 
-                <ion-col col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3F>
-                    <ion-item>
-                        <ion-label text-wrap stacked color="primary" floating>
-                            What can make you order for food while you are in the office?
-                        </ion-label>
-                        <ion-input  type="text" [(ngModel)]="office" ></ion-input>
-                    </ion-item>
-                </ion-col>
+                    <ion-col *ngIf="challenges == 1" col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3F>
+                        <ion-item>
+                            <ion-label text-wrap stacked color="primary" floating>
+                                What can make you order for food while you are in the office?
+                            </ion-label>
+                            <ion-input type="text" [(ngModel)]="office"></ion-input>
+                        </ion-item>
+                    </ion-col>
 
-                <ion-col col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3F>
-                    <ion-item>
-                        <ion-label text-wrap stacked color="primary" floating>
-                            What can make you order for food while you are at home?
-                        </ion-label>
-                        <ion-input  type="text" [(ngModel)]="home" ></ion-input>
-                    </ion-item>
-                </ion-col>
+                    <ion-col *ngIf="challenges == 1" col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3F>
+                        <ion-item>
+                            <ion-label text-wrap stacked color="primary" floating>
+                                What can make you order for food while you are at home?
+                            </ion-label>
+                            <ion-input type="text" [(ngModel)]="home"></ion-input>
+                        </ion-item>
+                    </ion-col>
 
 
-                <ion-col col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3F>
-                    <ion-item>
-                        <ion-label text-wrap stacked color="primary" floating>What challenge have you faced ordering food online?
-                        </ion-label>
-                        <ion-input  type="text" [(ngModel)]="challenge" ></ion-input>
+                    <ion-col *ngIf="challenges == 1" col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3F>
+                        <ion-item>
+                            <ion-label text-wrap stacked color="primary" floating>What challenge have you faced
+                                ordering food online?
+                            </ion-label>
+                            <ion-input type="text" [(ngModel)]="challenge"></ion-input>
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col>
+                        <ion-item>
+                            <ion-label text-wrap stacked color="primary">
+                                What else are you missing now from the food you get? (Optional)
+                            </ion-label>
+                            <ion-textarea type="text" [(ngModel)]="missed" required="required"></ion-textarea>
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+            </ion-card>
 
-                        <!--  <ion-input  type="hidden" [(ngModel)]="monthlyearnings"  ></ion-input> -->
-
-                    </ion-item>
-                </ion-col>
-            </ion-row>
-            <ion-row>
-                <ion-col>
-                    <ion-item>
-                        <ion-label text-wrap stacked color="primary">
-                            What else are you missing now from the food you get?
-                        </ion-label>
-                        <ion-textarea type="text" [(ngModel)]="missed"  required="required"></ion-textarea>
-                    </ion-item>
-                </ion-col>
-            </ion-row>
+            <button ion-button round color="secondary" (click)="nextTab(variety,takeaway,likelunch,lunchkesho,skipslunches,reason,lunchvalue,work,lunchi,challenges,onlinefrom,office,home,challenge,missed)"
+                right> Next
+                &nbsp;&nbsp;&nbsp;<ion-icon name="ios-arrow-forward"></ion-icon>
+            </button>
         </ion-card>
-
-        <button ion-button round color="secondary" (click)="nextTab(variety,takeaway,likelunch,lunchkesho,lunches,reason,lunchvalue,work,lunchi,challenges,onlinefrom,office,home,challenge,missed)" right> Next
-            &nbsp;&nbsp;&nbsp;<ion-icon name="ios-arrow-forward"></ion-icon>
-        </button>
-    </ion-card>
     </div>
 </ion-content>

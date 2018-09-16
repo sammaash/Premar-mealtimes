@@ -1,17 +1,17 @@
-import {Injectable} from '@angular/core';
-import {AlertController, Tabs} from 'ionic-angular';
+import { Injectable } from '@angular/core';
+import { AlertController, Tabs, ToastController } from 'ionic-angular';
 import {
     RealEstateAsset, VehicleAsset, OtherAsset, BankAccount, UnitTrust,
     RetirementSaving, RegularSaving, EmployeeBenefit, GroupEmployeeBenefit
 } from '../../pages/investments/investments';
 
-/*
+/*  
   Generated class for the GlobalsProvider provider.
 
   See https://angular.io/guide/dependency-injection for more info on providers
   and Angular DI.
 */
- 
+
 interface Person {
     first_name: string, middle_name: string, surname: string, dob: string,
     marital_status: string, occupation: string, employer: string
@@ -44,10 +44,10 @@ export class GlobalsProvider {
     lunch: any;
     paylunch: any;
     lunchcost: any;
-    takeaway: "any";
-    variety: "any";
-    likelunch: "any";
-    lunchkesho: "any";
+    takeaway: string = "any";
+    variety: string = "any";
+    likelunch: string = "any";
+    lunchkesho: string = "any";
     work: string = "any";
     lunches: string = "any";
     reason: string = "any";
@@ -59,17 +59,20 @@ export class GlobalsProvider {
     home: string = "any";
     challenge: string = "any";
     missed: string = "any";
-    phone: string ="any";
-    email: string ="any";
+    phone: string = "any";
+    email: string = "any";
 
     childrenDetails: Child[];
     spouseDetails: Person;
     principleDetails: Person;
-    income: {income: Income, extra: ExtraIncome[]};
+    income: { income: Income, extra: ExtraIncome[] };
     contacts: any;
     public firebaseRef: string;
+    public isFinishReady: boolean = false;
+    public isBudgetReady: boolean = false;
+    public isLifestyleReady: boolean = false;
 
-    expenses: {monthlyExpenses: MonthlyExpense, loanExpenses: Loan[]};
+    expenses: { monthlyExpenses: MonthlyExpense, loanExpenses: Loan[] };
     investments: {
         realEstateAssets: RealEstateAsset[],
         otherAssets: OtherAsset[],
@@ -84,10 +87,10 @@ export class GlobalsProvider {
         groupEmployeeBenefits: GroupEmployeeBenefit[]
     };
     confirmation: any;
- 
+
     tabs: Tabs;
 
-    constructor(private alertController: AlertController) {
+    constructor(private alertController: AlertController, public toastCtrl: ToastController) {
         console.log('Hello GlobalsProvider Provider');
     }
 
@@ -125,33 +128,33 @@ export class GlobalsProvider {
             return false;
     }
     isBlank1(missed: string): boolean {
-      return missed != null && missed.match(/^[a-zA-Z0-9\s]+$/) != null;
+        return missed != null && missed.match(/^[a-zA-Z0-9\s]+$/) != null;
     }
-    
+
     isBlank2(lunch: string): boolean {
-      return lunch != null && lunch.match(/^[a-zA-Z0-9\s]+$/) != null;
+        return lunch != null && lunch.match(/^[a-zA-Z0-9\s]+$/) != null;
     }
     isBlank3(office: string): boolean {
-      return office != null && office.match(/^[a-zA-Z0-9\s]+$/) != null;
+        return office != null && office.match(/^[a-zA-Z0-9\s]+$/) != null;
     }
     isBlank4(home: string): boolean {
-      return home != null && home.match(/^[a-zA-Z0-9\s]+$/) != null;
+        return home != null && home.match(/^[a-zA-Z0-9\s]+$/) != null;
     }
     isBlank5(takeaway: string): boolean {
-      return takeaway != null && takeaway.match(/^[a-zA-Z0-9\s]+$/) != null;
+        return takeaway != null && takeaway.match(/^[a-zA-Z0-9\s]+$/) != null;
     }
     isBlank6(work: string): boolean {
-      return work != null && work.match(/^[a-zA-Z0-9\s]+$/) != null;
+        return work != null && work.match(/^[a-zA-Z0-9\s]+$/) != null;
     }
     isBlank7(food: string): boolean {
-      return food != null && food.match(/^[a-zA-Z0-9\s]+$/) != null;
+        return food != null && food.match(/^[a-zA-Z0-9\s]+$/) != null;
     }
     isBlank8(challenge: string): boolean {
-      return challenge != null && challenge.match(/^[a-zA-Z0-9\s]+$/) != null;
+        return challenge != null && challenge.match(/^[a-zA-Z0-9\s]+$/) != null;
     }
-    
 
-    isValidPhone(phoneNumber: string): boolean {
+
+    public isValidPhone(phoneNumber: string): boolean {
         return phoneNumber != null && (phoneNumber.match(/^[0-9]+$/) != null ||
             phoneNumber.match(/^\+[0-9]+$/) != null);
     }
@@ -176,5 +179,26 @@ export class GlobalsProvider {
 
     setCurrentTabName(activeTab: Tabs) {
         activeTab.name = "Fuck That Nigga";
+    }
+
+    isNullVal(value: string): boolean {
+        if (value != null && !(''.trim()).match(value)) {
+            return false; // string is empty
+        }
+        return true;
+    }
+
+    showToast(message: string, position: string = 'middle', duration: number = 3000, dismissBtnText: string = 'Dismiss') {
+        
+        let toast = this.toastCtrl.create({
+            message: message,
+            duration: duration,
+            position: position,
+            showCloseButton: true,
+            closeButtonText: dismissBtnText,
+            dismissOnPageChange: true
+        });
+
+        toast.present();
     }
 }

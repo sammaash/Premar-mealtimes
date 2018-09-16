@@ -1,214 +1,144 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {GlobalsProvider} from '../../providers/globals/globals';
+import { GlobalsProvider } from '../../providers/globals/globals';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
-import { FinishPage } from '../finish/finish'; 
- 
+import { FinishPage } from '../finish/finish';
+
 interface misslunch {
-lunchvalue: string
+    lunchvalue: string
 }
-interface reasone{
-lunchvalue: null
+interface reasone {
+    lunchvalue: null
 }
-interface reasone2{
-lunchvalue: null
+interface reasone2 {
+    lunchvalue: null
 }
 @IonicPage()
 @Component({
-selector: 'page-lifestyle',
-templateUrl: 'lifestyle.html',
+    selector: 'page-lifestyle',
+    templateUrl: 'lifestyle.html',
 })
-export class LifestylePage 
-{
+export class LifestylePage {
 
-takeaway: string = "";
-variety: string = "";
-likelunch: string = "";
-lunchkesho: string = "";
-work: string = "";
-lunches: string = "";
-reason: string = "";
-challenges: string = "";
-lunchi: string = "";
-lunchvalue: string = "";
-onlinefrom: string = "";
-office: string = "";
-home: string = "";
-challenge: string = "";
-missed: string = "";
-//monthlyearnings: string = "";
-    
+    takeaway: string = "";
+    variety: string = "";
+    likelunch: string = "";
+    lunchkesho: string = "";
+    work: string = "";
+    skipslunches: string = "";
+    reason: string = "";
+    challenges: string = "";
+    lunchi: string = "";
+    lunchvalue: string = "";
+    onlinefrom: string = "";
+    office: string = "";
+    home: string = "";
+    challenge: string = "";
+    missed: string = "";
 
-misslunchs: misslunch[] = [];
-misslunchsJSON: misslunch[] = [];
-reasones: reasone[] = [];
-reasonesJSON: reasone[] = [];
-reasone2s: reasone2[] = [];
-reasone2sJSON: reasone2[] = [];
-    
+    misslunchs: misslunch[] = [];
+    misslunchsJSON: misslunch[] = [];
+    reasones: reasone[] = [];
+    reasonesJSON: reasone[] = [];
+    reasone2s: reasone2[] = [];
+    reasone2sJSON: reasone2[] = [];
 
+    selectOptions: any;
+    selectOptions_indemnity: any;
 
-
-
-selectOptions: any;
-selectOptions_indemnity: any;
-
-lifestyleList: AngularFireList<any>;
+    lifestyleList: AngularFireList<any>;
     constructor(public navCtrl: NavController, public navParams: NavParams,
-    public globals: GlobalsProvider,
-    public afDatabase: AngularFireDatabase) {
-    this.monthlyearnings = navParams.get('monthlyearnings');
-    this.globals.monthlyearnings=this.monthlyearnings;
-    this.foodbudget = navParams.get('foodbudget');
-    this.globals.foodbudget=this.foodbudget;
-    this.lunch = navParams.get('lunch');
-    this.globals.lunch=this.lunch;
-    this.paylunch = navParams.get('paylunch');
-    this.globals.paylunch=this.paylunch;
-    this.lunchcost = navParams.get('lunchcost');
-    this.globals.lunchcost=this.lunchcost;
+        public globals: GlobalsProvider,
+        public afDatabase: AngularFireDatabase) {
 
-
-    this.addmisslunch();
-    this.addreasone();
-    this.addreasone2();
-
-  
-    this.lifestyleList = afDatabase.list('/lifestyle');
-   
+        this.lifestyleList = afDatabase.list('/lifestyle');
     }
 
-
-   
-  
-
-   
-
-    nextTab(variety,takeaway,likelunch,lunchkesho,lunches,reason,lunchvalue,work,lunchi,challenges,onlinefrom,office,home,challenge,missed) {
-    //monthlyearnings: string = "";
-
-
-    this.monthlyearnings = this.globals.monthlyearnings;
-    this.foodbudget = this.globals.foodbudget;
-    this.lunch = this.globals.lunch;
-    this.paylunch = this.globals.paylunch;
-    this.lunchcost = this.globals.lunchcost;
-
-
-    //const newlifestyleRef = this.lifestyleList.push({});
-    const newlifestyleRef = this.lifestyleList.push({ name: this.globals.firebaseRef });
-      
-  
-    newlifestyleRef.set({
-
-      
-    //
-    Preferredmeatvariety:this.variety,
-      
-    timemostlikelytoneedtakeoutfood:this.takeaway,
-    lunchmostlikelytobuy:this.likelunch,
-    lunchchoicetommorow:this.lunchkesho,
-    Doyoumisslunch:this.lunches,
-    Reasontomisslunch:this.reason,
-    otherreason:this.lunchvalue,
-    Doyouconcentrateaftermissinglunch:this.work,
-    Whydontyoucarrylunchfromhome:this.lunchi,
-    Doyouorderfoodonline:this.challenges,
-    Wheredoyouorderfoodfrom:this.onlinefrom,
-    whyorderfoodattheoffice:this.office,
-    whyorderfoodathome:this.home,
-    challengeswhileorderingfood:this.challenge,
-    Whatareyoumissingfromthefoodyougetnow:this.missed,
-    monthlyearnings:this.monthlyearnings,
-    foodbudget:this.foodbudget,
-    lunch:this.lunch,
-    paylunch:this.paylunch,
-    lunchcost:this.lunchcost,
-      
-    }).then( newlifestyle => {
-      
-    }, 
-    error => {
-    console.log(error);
-    }
-    );
-    this.navCtrl.parent.select(2);
-
-
-    this.navCtrl.push(FinishPage, {
-    variety:this.variety,
-    takeaway:this.takeaway,
-    likelunch:this.likelunch,
-    lunchkesho:this.lunchkesho,
-    lunches:this.lunches,
-    reason:this.reason,
-    lunchvalue:this.lunchvalue,
-    work:this.work,
-    lunchi:this.lunchi,
-    challenges:this.challenges,
-    onlinefrom:this.onlinefrom,
-    office:this.office,
-    home:this.home,
-    challenge:this.challenge,
-    missed:this.missed,
-    monthlyearnings:this.monthlyearnings,
-    foodbudget:this.foodbudget,
-    lunch:this.lunch,
-    paylunch:this.paylunch,
-    lunchcost:this.lunchcost,
-    });
- 
+    hasNulls(): boolean {
+        if (
+            this.globals.isNullVal(this.variety) ||
+            this.globals.isNullVal(this.takeaway) ||
+            this.globals.isNullVal(this.likelunch) ||
+            this.globals.isNullVal(this.lunchkesho) ||
+            this.globals.isNullVal(this.skipslunches) ||
+            this.globals.isNullVal(this.challenges) ||
+            (this.challenges == '1' && (
+                this.globals.isNullVal(this.onlinefrom) ||
+                this.globals.isNullVal(this.office) ||
+                this.globals.isNullVal(this.home) ||
+                this.globals.isNullVal(this.challenge)
+            )) ||
+            (this.skipslunches == '1' && (
+                this.globals.isNullVal(this.reason) ||
+                (this.reason == '1' && this.globals.isNullVal(this.lunchvalue)) ||
+                this.globals.isNullVal(this.work) ||
+                this.globals.isNullVal(this.lunchi)
+            ))
+        ) {
+            return true;
+        }
+        this.globals.isLifestyleReady = true;
+        return false;
     }
 
-    //isDataValid(): string {
-     
-    //  if (!this.globals.isBlank1(this.principleLifestyle.missed))
-    //    return "Please fill variety missed field";
+    ionViewDidLeave() {
+        if (this.hasNulls()) {
+            this.globals.showToast("Please answer all questions in the \'Lifestyle\' tab");
+            return; // this tab is not completely filled
+        }
+        this.nextTab(this.variety, this.takeaway, this.likelunch, this.lunchkesho, this.skipslunches, this.reason, 
+            this.lunchvalue, this.work, this.lunchi, this.challenges, this.onlinefrom, this.office, 
+            this.home, this.challenge, this.missed);
+;
+    }
 
-    //if (!this.globals.isBlank2(this.principleLifestyle.lunch))
-    //   return "Please fill the packed lunch field";
+    nextTab(variety, takeaway, likelunch, lunchkesho, skipslunches, reason, lunchvalue, work, lunchi, challenges, onlinefrom, office, home, challenge, missed) {
 
-    //if (!this.globals.isBlank3(this.principleLifestyle.office))
-    //   return "Please fill the  office field";
+        if (this.hasNulls()) {
+            this.globals.showToast("Please answer all required questions.");
+            return; // this tab is not completely filled
+        }
 
-    //if (!this.globals.isBlank4(this.principleLifestyle.home))
-    //   return "Please fill the  home field";
+        let newlifestyleRef;
+        if (this.globals.firebaseRef != null) {// if we already have Firebase key for this session, use it
+            newlifestyleRef = this.lifestyleList.push({ name: this.globals.firebaseRef });
+        } else {
+            newlifestyleRef = this.lifestyleList.push({}); // else generate new key and save it as a global variable
+            this.globals.firebaseRef = newlifestyleRef.key;
+        }
 
-    //if (!this.globals.isBlank5(this.principleLifestyle.takeaway))
-    //   return "Please fill the  takeaway field";
+        newlifestyleRef.set({
+            Preferredmeatvariety: this.variety,
+            timemostlikelytoneedtakeoutfood: this.takeaway,
+            lunchmostlikelytobuy: this.likelunch,
+            lunchchoicetommorow: this.lunchkesho,
+            Doyoumisslunch: this.skipslunches,
+            Reasontomisslunch: this.reason,
+            otherreason: this.lunchvalue,
+            Doyouconcentrateaftermissinglunch: this.work,
+            Whydontyoucarrylunchfromhome: this.lunchi,
+            Doyouorderfoodonline: this.challenges,
+            Wheredoyouorderfoodfrom: this.onlinefrom,
+            whyorderfoodattheoffice: this.office,
+            whyorderfoodathome: this.home,
+            challengeswhileorderingfood: this.challenge,
+            Whatareyoumissingfromthefoodyougetnow: this.missed
+        }).then(newlifestyle => {
+            this.globals.showToast("Successfully saved 'Lifestyle' tab details.", 'bottom');
+        },
+            error => {
+                this.globals.showToast("Failed to save, please check your internet connection.", 'bottom');
+            }
+        );
+        this.navCtrl.parent.select(2);
 
-    //if (!this.globals.isBlank6(this.principleLifestyle.work))
-    //   return "Please fill the  work field";
 
-    //if (!this.globals.isBlank7(this.principleLifestyle.food))
-    //   return "Please fill the packed food field";
+        this.navCtrl.push(FinishPage);
 
-    //if (!this.globals.isBlank8(this.principleLifestyle.challenge))
-    //   return "Please fill the packed challenge field";
-    //}
-
+    }
 
     ionViewDidLoad() {
-    console.log('ionViewDidLoad LifestylePage');
-    }
-    addmisslunch() {
-    let misslunch: misslunch = {
-    lunchvalue: null
-            
-    };
-    this.misslunchs.push(misslunch);
-    }
-    addreasone() {
-    let reasone: reasone = {
-    lunchvalue: null
-    };
-    this.reasones.push(reasone);
-    }
-    addreasone2() {
-    let reasone2: reasone2 = {
-    lunchvalue: null
-    };
-    this.reasone2s.push(reasone2);
+        console.log('ionViewDidLoad LifestylePage');
     }
 
-    }
+}
