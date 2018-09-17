@@ -53,21 +53,25 @@ export class FinishPage {
             return;
         }
 
-        let newfinalRef;
-        if (this.globals.firebaseRef != null) {// if we already have Firebase key for this session, use it
-            newfinalRef = this.finalList.push({ name: "kinyunye" }); // this.globals.firebaseRef
-        } else {
-            newfinalRef = this.finalList.push({ name: "kinyunye" }); // else generate new key and save it as a global variable
-            this.globals.firebaseRef = newfinalRef.key;
-        }
-
-        newfinalRef.set({
+        let data = {
             phone: this.phone,
             email: this.email,
-            comments: this.comments,
+            // comments: this.comments,
             allowPhone: this.allowPhone,
             allowEmail: this.allowEmail
-        }).then(newfinal => {
+        };
+
+        let thenableObj;
+
+        if (this.globals.firebaseRef != null) {// if we already have Firebase key for this session, use it
+            thenableObj = this.finalList.set(this.globals.firebaseRef, data); // this.globals.firebaseRef
+        } else {
+            thenableObj = this.finalList.push(data); // else generate new key and save it as a global variable
+            this.globals.firebaseRef = thenableObj.key;
+        }
+
+
+        thenableObj.then(newfinal => {
             this.globals.showToast("Thank you for your time :)", 'bottom');
             this.globals.showAlert("Finished", "Thank you for your time. We shall inform you once the project is complete.");
         },

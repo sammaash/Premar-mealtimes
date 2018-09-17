@@ -63,22 +63,24 @@ export class BudgetPage {
             return; // this tab is not completely filled
         }
 
-        let newBudgetRef;
-        if (this.globals.firebaseRef != null) { // if we already have Firebase key for this session, use it
-            newBudgetRef = this.budgetList.push({ name: this.globals.firebaseRef });
-        } else {
-            newBudgetRef = this.budgetList.push({}); // else generate new key and save it as a global variable
-            this.globals.firebaseRef = newBudgetRef.key;
-        }
-
-        newBudgetRef.set({
+        let data = {
             monthlyearnings: this.monthlyearnings,
             foodbudget: this.foodbudget,
             lunch: this.lunch,
             paylunch: this.paylunch,
             lunchcost: this.lunchcost
 
-        }).then(newBudget => {
+        };
+
+        let thenableObj;
+        if (this.globals.firebaseRef != null) {// if we already have Firebase key for this session, use it
+            thenableObj = this.budgetList.set(this.globals.firebaseRef, data); // this.globals.firebaseRef
+        } else {
+            thenableObj = this.budgetList.push(data); // else generate new key and save it as a global variable
+            this.globals.firebaseRef = thenableObj.key;
+        }
+
+        thenableObj.then(newBudget => {
             this.globals.showToast("Successfully saved 'Budget' tab details.", 'bottom');
         }, error => {
             this.globals.showToast("Failed to save, please check your internet connection.", 'bottom');

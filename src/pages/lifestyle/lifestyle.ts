@@ -102,15 +102,7 @@ export class LifestylePage {
             return; // this tab is not completely filled
         }
 
-        let newlifestyleRef;
-        if (this.globals.firebaseRef != null) {// if we already have Firebase key for this session, use it
-            newlifestyleRef = this.lifestyleList.push({ name: this.globals.firebaseRef });
-        } else {
-            newlifestyleRef = this.lifestyleList.push({}); // else generate new key and save it as a global variable
-            this.globals.firebaseRef = newlifestyleRef.key;
-        }
-
-        newlifestyleRef.set({
+        let data = {
             Preferredmeatvariety: this.variety,
             timemostlikelytoneedtakeoutfood: this.takeaway,
             lunchmostlikelytobuy: this.likelunch,
@@ -126,7 +118,17 @@ export class LifestylePage {
             whyorderfoodathome: this.home,
             challengeswhileorderingfood: this.challenge,
             Whatareyoumissingfromthefoodyougetnow: this.missed
-        }).then(newlifestyle => {
+        };
+
+        let thenableObj;
+        if (this.globals.firebaseRef != null) {// if we already have Firebase key for this session, use it
+            thenableObj = this.lifestyleList.set(this.globals.firebaseRef, data); // this.globals.firebaseRef
+        } else {
+            thenableObj = this.lifestyleList.push(data); // else generate new key and save it as a global variable
+            this.globals.firebaseRef = thenableObj.key;
+        }
+
+        thenableObj.set(data).then(newlifestyle => {
             this.globals.showToast("Successfully saved 'Lifestyle' tab details.", 'bottom');
         },
             error => {
