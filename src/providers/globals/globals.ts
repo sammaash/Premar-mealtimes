@@ -157,7 +157,7 @@ export class GlobalsProvider {
 
     public isValidPhone(phoneNumber: string): boolean {
         return phoneNumber != null && (phoneNumber.match(/^[0-9]+$/) != null ||
-            phoneNumber.match(/^\+[0-9]+$/) != null);
+            phoneNumber.match(/^\+07[0-9]{8}$/) != null); // force phone # format to be 07xxxxxxxx
     }
 
 
