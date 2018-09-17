@@ -128,7 +128,7 @@ export class LifestylePage {
             this.globals.firebaseRef = thenableObj.key;
         }
 
-        thenableObj.set(data).then(newlifestyle => {
+        thenableObj.then(newlifestyle => {
             this.globals.showToast("Successfully saved 'Lifestyle' tab details.", 'bottom');
         },
             error => {
