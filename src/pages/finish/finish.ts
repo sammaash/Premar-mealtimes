@@ -32,8 +32,8 @@ export class FinishPage {
     hasNulls(): boolean {
         if (
             this.globals.isNullVal(this.phone) ||
-            this.globals.isNullVal(this.email) ||
-            this.globals.isNullVal(this.comments)
+            this.globals.isNullVal(this.email)
+            // || this.globals.isNullVal(this.comments)
         ) {
             return true;
         }
@@ -56,7 +56,7 @@ export class FinishPage {
         let data = {
             phone: this.phone,
             email: this.email,
-            // comments: this.comments,
+            comments: this.comments,
             allowPhone: this.allowPhone,
             allowEmail: this.allowEmail
         };
