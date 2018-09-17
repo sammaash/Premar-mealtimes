@@ -55,9 +55,9 @@ export class FinishPage {
 
         let newfinalRef;
         if (this.globals.firebaseRef != null) {// if we already have Firebase key for this session, use it
-            newfinalRef = this.finalList.push({ name: this.globals.firebaseRef });
+            newfinalRef = this.finalList.push({ name: "kinyunye" }); // this.globals.firebaseRef
         } else {
-            newfinalRef = this.finalList.push({}); // else generate new key and save it as a global variable
+            newfinalRef = this.finalList.push({ name: "kinyunye" }); // else generate new key and save it as a global variable
             this.globals.firebaseRef = newfinalRef.key;
         }
 

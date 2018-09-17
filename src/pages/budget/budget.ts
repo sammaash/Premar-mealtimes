@@ -24,6 +24,7 @@ export class BudgetPage {
     lunch: string = "";
     paylunch: string = "";
     lunchcost: string = "";
+    alreadySaved: false;
 
     budgetList: AngularFireList<any>;
     constructor(public navCtrl: NavController, public navParams: NavParams,
@@ -36,7 +37,8 @@ export class BudgetPage {
         if (this.hasNulls()) {
             this.globals.showToast("Please answer all questions in the \'Budget\' tab");
             return; // this tab is not completely filled
-        }
+        }else if (this.alreadySaved)
+        return;
         this.nextTab(this.monthlyearnings, this.foodbudget, this.lunch, this.paylunch, this.lunchcost);
     }
 

@@ -20,6 +20,8 @@ interface reasone2 {
 })
 export class LifestylePage {
 
+    alreadySaved: boolean = false;
+
     takeaway: string = "";
     variety: string = "";
     likelunch: string = "";
@@ -85,11 +87,12 @@ export class LifestylePage {
         if (this.hasNulls()) {
             this.globals.showToast("Please answer all questions in the \'Lifestyle\' tab");
             return; // this tab is not completely filled
-        }
-        this.nextTab(this.variety, this.takeaway, this.likelunch, this.lunchkesho, this.skipslunches, this.reason, 
-            this.lunchvalue, this.work, this.lunchi, this.challenges, this.onlinefrom, this.office, 
+        } else if (this.alreadySaved)
+            return;
+        this.nextTab(this.variety, this.takeaway, this.likelunch, this.lunchkesho, this.skipslunches, this.reason,
+            this.lunchvalue, this.work, this.lunchi, this.challenges, this.onlinefrom, this.office,
             this.home, this.challenge, this.missed);
-;
+        ;
     }
 
     nextTab(variety, takeaway, likelunch, lunchkesho, skipslunches, reason, lunchvalue, work, lunchi, challenges, onlinefrom, office, home, challenge, missed) {

@@ -195,8 +195,8 @@ export class GlobalsProvider {
             duration: duration,
             position: position,
             showCloseButton: true,
-            closeButtonText: dismissBtnText,
-            dismissOnPageChange: true
+            closeButtonText: dismissBtnText
+            // dismissOnPageChange: true
         });
 
         toast.present();
