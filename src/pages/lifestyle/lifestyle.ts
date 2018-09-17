@@ -136,10 +136,6 @@ export class LifestylePage {
             }
         );
         this.navCtrl.parent.select(2);
-
-
-        this.navCtrl.push(FinishPage);
-
     }
 
     ionViewDidLoad() {

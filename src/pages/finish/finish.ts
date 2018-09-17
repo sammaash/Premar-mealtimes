@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 import { GlobalsProvider } from '../../providers/globals/globals';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 
@@ -23,7 +23,7 @@ export class FinishPage {
 
 
     finalList: AngularFireList<any>;
-    constructor(public navCtrl: NavController, public navParams: NavParams,
+    constructor(public navCtrl: NavController, public navParams: NavParams, public platform: Platform,
         public globals: GlobalsProvider, public afDatabase: AngularFireDatabase) {
 
         this.finalList = afDatabase.list('/final');
@@ -70,10 +70,25 @@ export class FinishPage {
             this.globals.firebaseRef = thenableObj.key;
         }
 
+        /**
+         * I have put this here instead of at the top so that we are able to first save the customer's contact details
+         * even if the other details are still missing
+         */
+        if(!this.globals.isBudgetReady) {
+            this.globals.showToast("Please answer all questions in the \'Budget\' tab");
+            return;
+        } else if(!this.globals.isLifestyleReady) {
+            this.globals.showToast("Please answer all questions in the \'Lifestyle\' tab");
+            return;
+        }
 
         thenableObj.then(newfinal => {
             this.globals.showToast("Thank you for your time :)", 'bottom');
-            this.globals.showAlert("Finished", "Thank you for your time. We shall inform you once the project is complete.");
+            let alert = this.globals.showAlert("You're Done", "Thank you for your time. We shall inform you once the project is complete.");
+            alert.onDidDismiss(() => {
+                window.open("http://premar.tech", '_system');
+                this.platform.exitApp();
+            });
         },
             error => {
                 this.globals.showToast("Failed to save, please check your internet connection.", 'bottom');

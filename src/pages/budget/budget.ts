@@ -86,8 +86,5 @@ export class BudgetPage {
             this.globals.showToast("Failed to save, please check your internet connection.", 'bottom');
         });
         this.navCtrl.parent.select(1);
-
-        this.navCtrl.push(LifestylePage);
-
     }
 }

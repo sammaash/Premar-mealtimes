@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AlertController, Tabs, ToastController } from 'ionic-angular';
+import { AlertController, Tabs, ToastController, Alert } from 'ionic-angular';
 import {
     RealEstateAsset, VehicleAsset, OtherAsset, BankAccount, UnitTrust,
     RetirementSaving, RegularSaving, EmployeeBenefit, GroupEmployeeBenefit
@@ -94,7 +94,7 @@ export class GlobalsProvider {
         console.log('Hello GlobalsProvider Provider');
     }
 
-    showAlert(title: string, message: string) {
+    showAlert(title: string, message: string) : Alert {
 
         let alert = this.alertController.create({
             title: title,
@@ -103,6 +103,7 @@ export class GlobalsProvider {
             cssClass: 'alertBox'
         });
         alert.present();
+        return alert;
     }
 
     isAgeCorrect(date: string, age: number = 18): boolean {

@@ -1,9 +1,5 @@
 <ion-tabs #navTabs  tabsPlacement="top" color="primary">
-  <ion-tab [root]="tab7Root" tabTitle="Budget" tabIcon="information-circle"></ion-tab>
-  <ion-tab [root]="tab3Root" tabTitle="Lifestyle" tabIcon="logo-chrome"></ion-tab>
-  <ion-tab [root]="tab2Root" tabTitle="Confirmation" tabIcon="call"></ion-tab>
+  <ion-tab [root]="tab7Root" tabTitle="Budget" tabIcon="information-circle" [tabBadge]="globals.isBudgetReady ? 'Y' : ''" tabBadgeStyle="green"></ion-tab>
+  <ion-tab [root]="tab3Root" tabTitle="Lifestyle" tabIcon="logo-chrome" [tabBadge]="globals.isLifestyleReady ? 'Y' : ''" tabBadgeStyle="green"></ion-tab>
+  <ion-tab [root]="tab2Root" tabTitle="Confirmation" tabIcon="call" [tabBadge]="globals.isFinishReady ? 'Y' : ''" tabBadgeStyle="green"></ion-tab>
 </ion-tabs>
-
-<!-- [tabBadge]="globals.isFinishReady ? 'Y' : ''" tabBadgeStyle="green"
-[tabBadge]="globals.isLifestyleReady ? 'Y' : ''" tabBadgeStyle="green"
-[tabBadge]="globals.isBudgetReady ? 'Y' : ''" tabBadgeStyle="green" -->
