@@ -86,7 +86,8 @@ export class FinishPage {
             this.globals.showToast("Thank you for your time :)", 'bottom');
             let alert = this.globals.showAlert("You're Done", "Thank you for your time. We shall inform you once the project is complete.");
             alert.onDidDismiss(() => {
-                window.open("http://premar.tech", '_system');
+                  //this.nav.push("http://premar.tech")
+                window.open("http://premar.tech", '_self');
                 this.platform.exitApp();
             });
         },
