@@ -82,7 +82,7 @@ ion-input, ion-select, ion-datetime, ion-textarea  {
 .alert-wp .alert-radio-label{ white-space: pre-line;}
 
 
-.confirmBox .alert-message, .alertBox .alert-message{padding:10px;font-size:16px;line-height:1.5em;text-align:center;color:map-get($colors,primary);}
+.confirmBox .alert-message, .alertBox .alert-message{padding:10px;font-size:16px;line-height:1.5em;text-align:center;color:white;}
 .confirmBox .alert-wrapper, .alertBox .alert-wrapper{border-radius:3px;};
 .confirmBox .alert-head, .alertBox .alert-head{font-size:18px;border-top-left-radius:3px;border-top-right-radius:3px;color:white;background-color:map-get($colors,primary);text-align:center;}
 .confirmBox .alert-button, .alertBox .alert-button{color:white;background-color:map-get($colors,secondary);}

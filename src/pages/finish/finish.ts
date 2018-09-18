@@ -44,12 +44,15 @@ export class FinishPage {
     nextTab(phone, email) {
         if (this.hasNulls()) {
             this.globals.showToast("Please answer all required questions.");
+            this.globals.isFinishReady = false;
             return; // this tab is not completely filled
-        } else if (!this.globals.isValidPhone(this.phone)) {
+        } else if (!this.globals.isValidPhone(this.phone.trim())) {
             this.globals.showToast("Invalid phone number.");
+            this.globals.isFinishReady = false;
             return;
-        } else if (!this.globals.isValidEmail(this.email)) {
+        } else if (!this.globals.isValidEmail(this.email.trim())) {
             this.globals.showToast("Invalid email address.");
+            this.globals.isFinishReady = false;
             return;
         }
 
