@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <script data-ionic="inject">
+    (function(w){var i=w.Ionic=w.Ionic||{};i.version='3.9.2';i.angular='5.2.10';i.staticDir='build/';})(window);
+  </script>
+  <meta charset="UTF-8">
+  <title>Questionnaire</title>
+  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <link rel="icon" type="image/x-icon" href="assets/icon/favicon.ico">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#4e8ef7">
+
+  <!-- add to homescreen for ios -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <!-- cordova.js required for cordova apps (remove if not needed) -->
+  <!--<script src="cordova.js"></script>-->
+
+   <!--un-comment this code to enable service worker-->
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(() => console.log('service worker installed'))
+        .catch(err => console.error('Error', err));
+    }
+  </script>
+
+  <link href="build/main.css" rel="stylesheet">
+
+</head>
+<style>
+    html {
+      background: url('hero-bg.jpg') no-repeat center center fixed;
+      background-size: cover;
+      height: 100%;
+      overflow: hidden;
+    }
+    .logo-img {
+        position: absolute;
+        max-width: 30%;
+        background: rgba(255, 255, 255, 0.9);
+    }
+    
+    .content-div {
+      display: table;
+      height: 100%;
+      width: 100%;
+        background: rgba(0, 0, 0, 0.7);
+      text-align: center;
+        color: white;
+        font-size: 30px;
+        font-weight: bold;
+    }
+    .content-div span {
+      display: table-cell;
+      vertical-align: middle;
+    }
+    
+    .no-load-link:link, .no-load-link:visited {
+      background-color: #61D2B4;
+      color: white;
+      padding: 14px 25px;
+      text-align: center;
+      margin: 20px;
+      font-size: 20px;
+      text-decoration: none;
+      display: inline-block;
+      /*border: 1px solid #61D2B4;*/
+      border:none;
+      border-radius: 30px;
+    }
+    
+    
+    .no-load-link:hover, .no-load-link:active {
+      background-color: #33b391;
+      /*border: 1px solid #33b391;*/
+      border:none;
+      border-radius: 30px;
+    }
+</style>
+<body>
+
+<img src='logo.png' class='logo-img' />
+
+<div class='content-div'>
+    <span>Loading questionnaire page... if you do not see a questionnaire after page is done loading, consider switching browsers! Opera Mini is not supported. Chrome works best... ;-)
+    <a href='http://premar.tech' target='_blank' class='no-load-link'>Or Visit Premar's Website</a>
+    </span>
+</div>
+
+
+
+
+
+  <!-- Ionic's root component and where the app will load -->
+  <ion-app></ion-app>
+
+  <!-- The polyfills js is generated during the build process -->
+  <script src="build/polyfills.js"></script>
+
+  <!-- The vendor js is generated during the build process
+       It contains all of the dependencies in node_modules -->
+  <script src="build/vendor.js"></script>
+
+  <!-- The main bundle js is generated during the build process -->
+  <script src="build/main.js"></script>
+
+</body>
+</html>
