@@ -53,8 +53,8 @@
 
 
     <!-- HTML for browsers with no JS support e.g. Opera Mini put this at the end of the page so that Ionic loads first if supported and this only shows if JS is not supported i.e. Ionic can't load -->
-<img src='logo.png' class='logo-img' />
-<div class='content-div'>
+<img src='./assets/imgs/logo_.png' class='logo-img' id="logo-img" />
+<div class='content-div' id='content-div'>
     <span>Loading questionnaire page... if you do not see a questionnaire after page is done loading, consider switching browsers! Opera Mini is not supported. Chrome works best... ;-)
     <a href='http://premar.tech' target='_blank' class='no-load-link'>Or Visit Premar's Website</a>
     </span>
@@ -72,9 +72,11 @@
         position: absolute;
         max-width: 30%;
         background: rgba(255, 255, 255, 0.9);
+        z-index: -10;
     }
     
     .content-div {
+      z-index: -11;
       display: table;
       height: 100%;
       width: 100%;
@@ -84,6 +86,8 @@
         font-size: 30px;
         font-weight: bold;
     }
+
+
     .content-div span {
       display: table-cell;
       vertical-align: middle;
