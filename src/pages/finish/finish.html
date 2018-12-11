@@ -47,24 +47,51 @@
                 </ion-col>
             </ion-row>
             
+            <ion-row radio-group justify-content-center [(ngModel)]="gender">
+                    <ion-col col-12 col-sm-4 col-md-4 col-lg-2 col-xl-3F>
+                            <ion-item>
+                                    <ion-label text-wrap color="primary">
+                                        Gender:
+                                    </ion-label>
+                                </ion-item> 
+                    </ion-col>
+                    <ion-col col-12 col-sm-4 col-md-4 col-lg-3 col-xl-3F>
+                            <ion-item>
+                                    <ion-label text-wrap color="primary">
+                                        Male
+                                    </ion-label>
+                                    <ion-radio  value="M"></ion-radio>
+                                </ion-item>
+                                
+                    </ion-col>
+                <ion-col col-12 col-sm-4 col-md-4 col-lg-3 col-xl-3F>
+                        <ion-item>
+                                <ion-label text-wrap color="primary">
+                                    Female
+                                </ion-label>
+                                <ion-radio value="F"></ion-radio>
+                            </ion-item>
+                </ion-col>
+            </ion-row>
+
             <ion-row  justify-content-center>
-                    <ion-col col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3F>
-                            <ion-item>
-                                    <ion-label text-wrap color="primary">
-                                        Allow us to contact you on phone
-                                    </ion-label>
-                                    <ion-checkbox [(ngModel)]="allowPhone" checked required="required"></ion-checkbox>
-                                </ion-item>
-                    </ion-col>
-                    <ion-col col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3F>
-                            <ion-item>
-                                    <ion-label text-wrap color="primary">
-                                        Allow us to contact you on email
-                                    </ion-label>
-                                    <ion-checkbox [(ngModel)]="allowEmail" checked required="required"></ion-checkbox>
-                                </ion-item>
-                    </ion-col>
-                </ion-row>
+                <ion-col col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3F>
+                        <ion-item>
+                                <ion-label text-wrap color="primary">
+                                    Allow us to contact you on phone
+                                </ion-label>
+                                <ion-checkbox [(ngModel)]="allowPhone" checked required="required"></ion-checkbox>
+                            </ion-item>
+                </ion-col>
+                <ion-col col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3F>
+                        <ion-item>
+                                <ion-label text-wrap color="primary">
+                                    Allow us to contact you on email
+                                </ion-label>
+                                <ion-checkbox [(ngModel)]="allowEmail" checked required="required"></ion-checkbox>
+                            </ion-item>
+                </ion-col>
+            </ion-row>
             </ion-grid>
         </ion-card>
         <button ion-button round color="secondary" (click)="nextTab(phone,email)" right> Finish

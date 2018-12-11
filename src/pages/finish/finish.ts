@@ -18,6 +18,7 @@ export class FinishPage {
     phone: string = "";
     email: string = "";
     comments: string = "";
+    gender: string = "F";
     allowPhone: boolean = true;
     allowEmail: boolean = true;
 
@@ -57,6 +58,7 @@ export class FinishPage {
         }
 
         let data = {
+            gender: this.gender,
             phone: this.phone,
             email: this.email,
             comments: this.comments,
