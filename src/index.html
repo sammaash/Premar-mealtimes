@@ -29,21 +29,17 @@
 
   <link href="build/main.css" rel="stylesheet">
 
+    
+    
+    
 </head>
 <body>
 
 
 
- 
-
-
-
-
 
   <!-- Ionic's root component and where the app will load -->
-  <ion-app>
-
-  </ion-app>
+  <ion-app></ion-app>
 
   <!-- The polyfills js is generated during the build process -->
   <script src="build/polyfills.js"></script>
@@ -56,8 +52,65 @@
   <script src="build/main.js"></script>
 
 
-     
-
+    <!-- HTML for browsers with no JS support e.g. Opera Mini put this at the end of the page so that Ionic loads first if supported and this only shows if JS is not supported i.e. Ionic can't load -->
+<img src='logo.png' class='logo-img' />
+<div class='content-div'>
+    <span>Loading questionnaire page... if you do not see a questionnaire after page is done loading, consider switching browsers! Opera Mini is not supported. Chrome works best... ;-)
+    <a href='http://premar.tech' target='_blank' class='no-load-link'>Or Visit Premar's Website</a>
+    </span>
+</div>
+    
+<!-- CSS for browsers with no JS support e.g. Opera Mini -->
+    <style>
+    html {
+      background: url('hero-bg.jpg') no-repeat center center fixed;
+      background-size: cover;
+      height: 100%;
+      overflow: hidden;
+    }
+    .logo-img {
+        position: absolute;
+        max-width: 30%;
+        background: rgba(255, 255, 255, 0.9);
+    }
+    
+    .content-div {
+      display: table;
+      height: 100%;
+      width: 100%;
+        background: rgba(0, 0, 0, 0.7);
+      text-align: center;
+        color: white;
+        font-size: 30px;
+        font-weight: bold;
+    }
+    .content-div span {
+      display: table-cell;
+      vertical-align: middle;
+    }
+    
+    .no-load-link:link, .no-load-link:visited {
+      background-color: #61D2B4;
+      color: white;
+      padding: 14px 25px;
+      text-align: center;
+      margin: 20px;
+      font-size: 20px;
+      text-decoration: none;
+      display: inline-block;
+      /*border: 1px solid #61D2B4;*/
+      border:none;
+      border-radius: 30px;
+    }
+    
+    
+    .no-load-link:hover, .no-load-link:active {
+      background-color: #33b391;
+      /*border: 1px solid #33b391;*/
+      border:none;
+      border-radius: 30px;
+    }
+</style>
 
 </body>
 </html>
