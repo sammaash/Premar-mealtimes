@@ -63,7 +63,7 @@ export class BudgetPage {
             return; // this tab is not completely filled
         }
 
-        let date = Date()
+        let date = Date();
 
         let data = {
             datetime: date,

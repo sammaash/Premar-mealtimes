@@ -57,7 +57,10 @@ export class FinishPage {
             return;
         }
 
+        let date = Date();
+
         let data = {
+            datetime: date,
             gender: this.gender,
             phone: this.phone,
             email: this.email,

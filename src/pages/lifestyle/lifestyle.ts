@@ -102,7 +102,10 @@ export class LifestylePage {
             return; // this tab is not completely filled
         }
 
+        let date = Date();
+
         let data = {
+            datetime: date,
             Preferredmeatvariety: this.variety,
             timemostlikelytoneedtakeoutfood: this.takeaway,
             lunchmostlikelytobuy: this.likelunch,
